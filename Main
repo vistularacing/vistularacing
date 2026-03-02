@@ -1,0 +1,32 @@
+index.html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Vistula Racing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    margin: 0;
+    background: #000;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+header {
+    padding: 50px;
+    font-size: 42px;
+    font-weight: bold;
+}
+.section {
+    padding: 40px;
+}
+</style>
+</head>
+<body>
+<header>Vistula Racing</header>
+<div class="section">
+Oficjalna strona zespołu.
+</div>
+</body>
+</html>
