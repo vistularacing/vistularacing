@@ -164,6 +164,14 @@ section.active {
   display: block
 }
 
+/* Language Override for Dev Badge */
+.lang-text::before {
+  content: attr(data-pl);
+}
+body.en-mode .lang-text::before {
+  content: attr(data-en);
+}
+
 /* HERO */
 #home {
   display: none;
