@@ -23,18 +23,18 @@
         <ul class="nav-links">
             <li><a href="#" data-section="home" class="active">Home</a></li>
             <li><a href="#" data-section="liveries">Liveries</a></li>
-            <li><a href="#" data-section="about">About</a></li>
-            <li><a href="#" data-section="management">Management</a></li>
-            <li><a href="#" data-section="academy">Academy</a></li>
-            <li><a href="#" data-section="hof">Hall of Fame</a></li>
+            <li><a href="#" data-section="about" data-i18n="nav_about">O nas</a></li>
+            <li><a href="#" data-section="roster" data-i18n="nav_roster">TEAM</a></li>
+            <li><a href="#" data-section="academy" data-i18n="nav_academy">Academy</a></li>
+            <li><a href="#" data-section="hof" data-i18n="nav_hof">Hall of Fame</a></li>
             <li><a href="#" data-section="pitwall">Pitwall</a></li>
             <li><a href="#" data-section="joinus" class="nav-joinus">Join Us</a></li>
         </ul>
-        <div
-            style="display:flex;align-items:center;gap:8px;padding:5px 14px;border:1px solid rgba(255,255,255,0.1);border-radius:4px;background:rgba(255,255,255,0.03);">
-            <span style="font-size:.5rem;letter-spacing:2px;color:#444;font-family:'Orbitron',monospace;">PARTNER</span>
+        <button id="lang-toggle" class="lang-toggle" title="Switch language"><span class="lang-flag">🇬🇧</span> EN</button>
+        <a href="https://simline.eu/pl/strona-glowna" target="_blank" rel="noopener noreferrer" class="nav-partner-box">
+            <span class="nav-partner-label">PARTNER</span>
             <img src="simline_logo.png" alt="Simline.eu" style="height:24px;width:auto;object-fit:contain;">
-        </div>
+        </a>
         <div class="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
         </div>
@@ -42,30 +42,44 @@
 
     <!-- ===== HOME ===== -->
     <section id="home">
-        <div class="hero-grid"></div>
-        <div class="hero-badge">SIMRACING TEAM · POLAND · EST. 2022</div>
+        <div class="speed-streaks">
+            <div class="streak streak--left streak--1"></div>
+            <div class="streak streak--left streak--2"></div>
+            <div class="streak streak--right streak--3"></div>
+            <div class="streak streak--right streak--4"></div>
+            <div class="streak streak--left streak--a1"></div>
+            <div class="streak streak--right streak--a2"></div>
+            <div class="streak streak--left streak--a3"></div>
+            <div class="streak streak--right streak--a4"></div>
+            <div class="streak streak--left streak--a5"></div>
+            <div class="streak streak--right streak--a6"></div>
+            <div class="streak streak--left streak--a7"></div>
+            <div class="streak streak--right streak--a8"></div>
+        </div>
+
+        <div class="hero-badge" data-i18n="hero_badge">SIMRACING TEAM · POLAND · EST. 2022</div>
         <h1 class="hero-title">VISTULA<br><span class="accent">RACING</span></h1>
-        <p class="hero-sub">PRECISION · PERFORMANCE · PASSION</p>
+        <p class="hero-sub" data-i18n="hero_sub">PRECISION · PERFORMANCE · PASSION</p>
         <div class="hero-actions">
-            <a href="#" class="btn btn-primary" data-goto="joinus">JOIN THE TEAM</a>
-            <a href="#" class="btn btn-outline" data-goto="about">OUR STORY</a>
+            <a href="#" class="btn btn-primary" data-goto="joinus" data-i18n="btn_join">DOŁĄCZ DO ZESPOŁU</a>
+            <a href="#" class="btn btn-outline" data-goto="about" data-i18n="btn_story">NASZA HISTORIA</a>
         </div>
         <div class="hero-stats">
             <div class="stat-item">
                 <div class="stat-num count-up" data-target="15" data-suffix="+">0</div>
-                <div class="stat-label">Drivers</div>
+                <div class="stat-label" data-i18n="stat_drivers">Kierowcy</div>
             </div>
             <div class="stat-item">
-                <div class="stat-num count-up" data-target="5" data-suffix="">0</div>
-                <div class="stat-label">Race Wins</div>
+                <div class="stat-num count-up" data-target="6" data-suffix="">0</div>
+                <div class="stat-label" data-i18n="stat_wins">Wygrane</div>
             </div>
             <div class="stat-item">
-                <div class="stat-num count-up" data-target="48" data-suffix="+">0</div>
-                <div class="stat-label">Podiums</div>
+                <div class="stat-num count-up" data-target="14" data-suffix="+">0</div>
+                <div class="stat-label" data-i18n="stat_podiums">Podia</div>
             </div>
             <div class="stat-item">
                 <div class="stat-num count-up" data-target="1" data-suffix="">0</div>
-                <div class="stat-label">Championship</div>
+                <div class="stat-label" data-i18n="stat_champ">Mistrzostwo</div>
             </div>
         </div>
     </section>
@@ -73,10 +87,10 @@
     <!-- ===== LIVERIES ===== -->
     <section id="liveries">
         <div class="section-header">
-            <div class="section-label">// TEAM LIVERIES</div>
-            <h2 class="section-title">NASZE MALOWANIA</h2>
+            <div class="section-label" data-i18n="liv_label">// MALOWANIA ZESPOŁU</div>
+            <h2 class="section-title" data-i18n="liv_title">NASZE MALOWANIA</h2>
             <div class="section-line"></div>
-            <p style="color:var(--text-dim);margin-top:16px;font-size:.9rem;">
+            <p style="color:var(--text-dim);margin-top:16px;font-size:.9rem;" data-i18n="liv_hint">
                 Najedź na malowanie, aby zobaczyć dynamiczne podświetlenie i szczegóły.
             </p>
         </div>
@@ -86,214 +100,967 @@
     <!-- ===== ABOUT ===== -->
     <section id="about">
         <div class="section-header">
-            <div class="section-label">// NASZA HISTORIA</div>
-            <h2 class="section-title">KIM JESTEŚMY</h2>
+            <div class="section-label" data-i18n="about_label">// NASZA HISTORIA</div>
+            <h2 class="section-title" data-i18n="about_title">KIM JESTEŚMY</h2>
             <div class="section-line"></div>
         </div>
         <div class="about-intro">
             <div class="about-card-wrap">
                 <div class="card about-desc-card">
                     <div class="about-card-icon">🏎</div>
-                    <h3 class="about-card-title">VISTULA RACING TEAM</h3>
-                    <p style="color:var(--text-dim);line-height:1.8;font-size:.95rem;">
-                        Vistula Racing Team to profesjonalny polski zespół simracingowy, którego korzenie sięgają 2024
-                        roku. Wywodząc się z koleżeńskiej ligi <strong style="color:var(--text)">WEFC</strong>
-                        stworzonej w F1 24, przez kolejne miesiące przeszedł drogę od luźnego pomysłu do rozpoznawalnej
-                        marki w świecie simracingu.
+                    <h3 class="about-card-title" data-i18n="about_vrt_title">VISTULA RACING TEAM</h3>
+                    <p style="color:var(--text-dim);line-height:1.8;font-size:.95rem;" data-i18n="about_vrt_p1">
+                        Vistula Racing Team to profesjonalny polski zespół simracingowy, którego korzenie sięgają
+                        nocnych sesji na Discordzie i publicznych serwerów Assetto Corsy w <strong
+                            style="color:var(--text)">2022 roku</strong>.
+                        Od garażowego podziemia, przez dramat nazewniczy ery Rot4tion, po twardy endurance –
+                        przeszliśmy drogę, którą pokonują tylko ci, którzy naprawdę chcą wygrywać.
                     </p>
-                    <p style="color:var(--text-dim);line-height:1.8;font-size:.95rem;margin-top:12px;">
-                        Dziś Vistula Racing startuje w ligach <strong style="color:var(--text)">Hypercar Endurance
-                            Championship (HEC)</strong>, z flotą aut klasy GT3 i Hypercar, rozbudowaną Akademią oraz
-                        sponsorem <strong style="color:#ff6a1a;">Simline.eu</strong>. Jesteśmy gotowi walczyć o
-                        najwyższe miejsca na podium.
+                    <p style="color:var(--text-dim);line-height:1.8;font-size:.95rem;margin-top:12px;" data-i18n="about_vrt_p2">
+                        Dziś Vistula Racing to <strong style="color:var(--text)">15 kierowców</strong>, flota GT3 i
+                        Hypercar,
+                        starty w międzynarodowej lidze <strong style="color:var(--text)">HEC</strong>,
+                        tytuł Drużynowego Mistrza Polski WEC, własne oprogramowanie
+                        <strong style="color:var(--blue)">VR-telemetry</strong> i sponsor
+                        <strong style="color:#ff6a1a;">Simline.eu</strong>. Nie jesteśmy wynikiem szczęścia –
+                        jesteśmy wynikiem buntu przeciwko amatorce.
                     </p>
                 </div>
                 <div class="card about-desc-card">
                     <div class="about-card-icon">⚡</div>
-                    <h3 class="about-card-title">NASZA FILOZOFIA</h3>
-                    <p style="color:var(--text-dim);line-height:1.8;font-size:.95rem;">
-                        Rywalizacja w dobrej atmosferze, z prawdziwym funem – to idea, która przyświeca nam od początku.
-                        Łączymy pasję do wyścigów z rozwojem talentów, analizą telemetrii i ciągłym doskonaleniem.
-                        Simracing to dla nas sport, nie tylko gra.
+                    <h3 class="about-card-title" data-i18n="about_phil_title">NASZA FILOZOFIA</h3>
+                    <p style="color:var(--text-dim);line-height:1.8;font-size:.95rem;" data-i18n="about_phil_p1">
+                        Z pasji, twardych danych i własnego kodu powstają mistrzowie. Wierzymy, że simracing to
+                        prawdziwy sport – wymaga dyscypliny, precyzji i nieustannego rozwoju. W Vistula Racing
+                        łączymy rywalizację z budowaniem społeczności, gdzie każdy kierowca ma szansę się rozwinąć.
+                    </p>
+                    <p style="color:var(--text-dim);line-height:1.8;font-size:.95rem;margin-top:12px;" data-i18n="about_phil_p2">
+                        Nasze podejście opiera się na <strong style="color:var(--text)">analizie danych</strong> –
+                        budujemy własne narzędzie <strong style="color:var(--blue)">VR-telemetry</strong> do
+                        optymalizacji setupów, korzystamy ze strategii pit-stopowych i zaawansowanej telemetrii.
+                        Akademia z żelaznym rygorem (75% tempa liderów = bilet do składu głównego) jest kuźnią
+                        nowych talentów. Atmosfera fair play i wzajemny szacunek to fundamenty każdego sukcesu.
                     </p>
                     <div class="about-pills">
                         <span class="about-pill">GT3</span>
-                        <span class="about-pill">LMP2</span>
                         <span class="about-pill">Hypercar</span>
                         <span class="about-pill">HEC</span>
                         <span class="about-pill">WEC</span>
+                        <span class="about-pill">Rally</span>
+                        <span class="about-pill">VR-telemetry</span>
+                        <span class="about-pill">iRacing</span>
+                        <span class="about-pill">LMU</span>
+                        <span class="about-pill">AC Rally</span>
+                        <span class="about-pill">RBR</span>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="timeline-wrap">
-            <h3 class="timeline-title">OŚ CZASU</h3>
+            <h3 class="timeline-title" data-i18n="timeline_title">OŚ CZASU</h3>
             <div class="timeline">
+                <div class="timeline-car">🏎️</div>
+
+                <!-- 2022 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-year">2024</div>
-                    <div class="timeline-text">Powstaje koleżeńska liga <strong>Worldwide Endurance Formula Championship
-                            (WEFC)</strong> w F1 24. Po 3 miesiącach liga się kończy, ale pasja zostaje.</div>
+                    <div class="timeline-year" data-i18n="tl_2022_y">2022</div>
+                    <div class="timeline-text" data-i18n="tl_2022"><strong>Garażowe korzenie.</strong> Nocne sesje na Discordzie i
+                        „upalanie" Assetto Corsy na publicznych serwerach. Bez struktur, bez oficjalnych barw –
+                        napędzani jedynie surową pasją do wyścigów. To wtedy wykuł się fundament dzisiejszej ekipy:
+                        grupa ludzi, którzy mieli dość jeżdżenia bez celu.</div>
                 </div>
+
+                <!-- 2023 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-year">Jesień 2024</div>
-                    <div class="timeline-text">Projekt <strong>Endu Racers (ER)</strong> z udziałem Michała
-                        Czajkowskiego i Jakuba Kardasa. Projekt upada — wciąż tylko pomysł.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-year">Maj–Czerw. 2025</div>
-                    <div class="timeline-text">Krótkie ożywienie WEFC, a następnie ponowne zakończenie działalności.
+                    <div class="timeline-year" data-i18n="tl_2023_y">2023</div>
+                    <div class="timeline-text" data-i18n="tl_2023"><strong>Era Rot4tion – rok wielkiego rozłamu.</strong>
+                        Ambicje stworzenia profesjonalnego teamu rozbiły się o naming. <em>Rotation Race? Rot4tion Race?
+                            RRracing?</em> Kłótnie o logo spalały więcej energii niż treningi na torze.
+                        Projekt zapadł się pod ciężarem własnego ego, zostawiając jedną bezcenną lekcję:
+                        <strong style="color:var(--text)">nazwa nie wygrywa wyścigów – robią to ludzie i ich wzajemny
+                            szacunek.</strong>
                     </div>
                 </div>
+
+                <!-- 2024 Q1-Q2 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-year">15 Lipca 2025</div>
-                    <div class="timeline-text">Powstaje <strong>Endurance Racing Team</strong>. Po kolejnych ewolucjach
-                        nazwy (<em>Vistula Esports → Vistula Team Racing</em>) przybiera finalną formę: <strong>Vistula
-                            Racing Team</strong>.</div>
+                    <div class="timeline-year" data-i18n="tl_2024q12_y">2024 · Q1–Q2</div>
+                    <div class="timeline-text" data-i18n="tl_2024q12"><strong>Epizod WEFC.</strong> Zespół spróbował sił w lidze F1 24 pod
+                        szyldem <strong>Worldwide Endurance Formula Championship</strong>. Trzy miesiące walki z
+                        ograniczeniami gry pokazały jedno: ich miejsce jest w twardym endurance, a nie w półśrodkach.
+                    </div>
                 </div>
+
+                <!-- 2024 Q4 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-year">Wrzesień 2025</div>
-                    <div class="timeline-text">Nawiązanie współpracy z <strong>KYO</strong> → <em>KYO Vistula Racing
-                            Team</em>. Uruchomienie Akademii, rozbudowa składu, regularne starty ligowe.</div>
+                    <div class="timeline-year" data-i18n="tl_2024q4_y">2024 · Q4</div>
+                    <div class="timeline-text" data-i18n="tl_2024q4"><strong>Endu Racers – Projekt Widmo.</strong> Michał Czajkowski i Jakub
+                        Kardas odpalili projekt, który miał być nowym otwarciem. Brak stabilności sprawił, że ER
+                        stało się „projektem widmo". Byli o krok od poddania się, ale to właśnie ten marazm
+                        stał się <strong style="color:var(--text)">zapalnikiem do ostatecznej transformacji.</strong>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-year">30 Stycznia 2026</div>
-                    <div class="timeline-text"><strong style="color:#ffd700">🏆 Team Championship WEC!</strong> Vistula
-                        Racing zdobywa tytuł drużynowego mistrza
-                        Polski w WEC na samochodzie <strong>#77</strong> (drużyna #77, #776 i #777).</div>
-                </div>
+
+                <!-- 2025 Jul -->
                 <div class="timeline-item">
                     <div class="timeline-dot timeline-dot--gold"></div>
-                    <div class="timeline-year">25 Luty 2026</div>
-                    <div class="timeline-text"><strong>Historyczny debiut w HEC – Portimão.</strong> Aston Martin
+                    <div class="timeline-year" data-i18n="tl_jul25_y">15 Lipca 2025</div>
+                    <div class="timeline-text" data-i18n="tl_jul25"><strong style="color:#ffd700">Oficjalne powołanie Vistula Racing
+                            Team.</strong>
+                        Koniec z amatorką i powrót do korzeni endurance z nową energią.
+                        Marka VRT powstaje oficjalnie.</div>
+                </div>
+
+                <!-- 2025 Aug -->
+                <div class="timeline-item">
+                    <div class="timeline-dot timeline-dot--gold"></div>
+                    <div class="timeline-year" data-i18n="tl_aug25_y">1 Sierpnia 2025</div>
+                    <div class="timeline-text" data-i18n="tl_aug25"><strong>Chrzest bojowy – Qatar 6h.</strong> VRT oficjalnie zadebiutowało
+                        na torze.
+                        <strong style="color:var(--text)">Michał Czajkowski, Jakub Kardas</strong> oraz
+                        <strong style="color:var(--text)">Krystian Ogorzelski</strong> stanęli na starcie morderczego
+                        wyścigu.
+                        Teoretyczne założenia zespołu zostały zweryfikowane przez realną, sześciogodzinną walkę na
+                        dystansie.
+                    </div>
+                </div>
+
+                <!-- 2025 Sep -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year" data-i18n="tl_sep25_y">Wrzesień 2025</div>
+                    <div class="timeline-text" data-i18n="tl_sep25">Nawiązanie współpracy z <strong>KYO</strong> → <em>KYO Vistula Racing
+                            Team</em>. Uruchomienie <strong style="color:var(--text)">Akademii</strong>,
+                        która stała się kuźnią talentów i fundamentem rozwoju składu.</div>
+                </div>
+
+                <!-- 2025 Nov -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year" data-i18n="tl_nov25_y">Listopad 2025</div>
+                    <div class="timeline-text" data-i18n="tl_nov25">Przełomowy moment – kontrakt z <strong
+                            style="color:#ff6a1a;">Simline.eu</strong>.
+                        Dzięki wsparciu i subskrypcji <strong style="color:var(--text)">RC Pro+</strong> w Le Mans
+                        Ultimate,
+                        przygotowania zespołu weszły na poziom inżynieryjny.</div>
+                </div>
+
+                <!-- 2025 Dec -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year" data-i18n="tl_dec25_y">Grudzień 2025</div>
+                    <div class="timeline-text" data-i18n="tl_dec25">Ustabilizowanie struktur Akademii i wprowadzenie żelaznego rygoru:
+                        <strong style="color:var(--text)">75% tempa liderów</strong> jako warunek wejścia do składu
+                        głównego.
+                        Vistula Academy staje się prawdziwą kuźnią mistrzów.
+                    </div>
+                </div>
+
+                <!-- 2026 Jan -->
+                <div class="timeline-item">
+                    <div class="timeline-dot timeline-dot--gold"></div>
+                    <div class="timeline-year">30 Stycznia 2026</div>
+                    <div class="timeline-text"><strong style="color:#ffd700">🏆 Drużynowy Mistrz Polski WEC
+                            (LMU)!</strong>
+                        Załogi <strong>#77</strong>, <strong>#776</strong> i <strong>#777</strong> zdominowały krajowe
+                        podwórko,
+                        potwierdzając bezwzględną klasę Vistula Racing.</div>
+                </div>
+
+                <!-- 2026 Feb -->
+                <div class="timeline-item">
+                    <div class="timeline-dot timeline-dot--gold"></div>
+                    <div class="timeline-year" data-i18n="tl_feb26_y">25 Lutego 2026</div>
+                    <div class="timeline-text" data-i18n="tl_feb26"><strong>Historyczny debiut w HEC – Portimão.</strong> Aston Martin
                         Vantage GT3 „Red Dream" (#77) wygrywa Test Race. Valkyrie Hypercar zdobywa <strong
                             style="color:var(--blue)">P2 i P4</strong>. Vistula Racing wkracza na arenę
                         międzynarodową.</div>
+                </div>
+
+                <!-- 2026 Mar -->
+                <div class="timeline-item">
+                    <div class="timeline-dot timeline-dot--gold"></div>
+                    <div class="timeline-year" data-i18n="tl_mar26_y">4 Marca 2026</div>
+                    <div class="timeline-text" data-i18n="tl_mar26"><strong style="color:#ffd700">Pogrom w HEC!</strong>
+                        LMGT3: <strong style="color:var(--text)">Krystian Ogorzelski P1</strong>,
+                        <strong style="color:var(--text)">Fabian Dusek P2</strong>.
+                        Hypercar: <strong style="color:var(--text)">Jakub Kardas P2</strong>,
+                        Karlo Kruhan P5 po morderczej walce. Dominacja Vistula Racing na pełnej mapie klas.
+                    </div>
+                </div>
+
+                <!-- Future -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year" data-i18n="tl_future_y">Nowe horyzonty</div>
+                    <div class="timeline-text" data-i18n="tl_future"><strong style="color:var(--blue)">VR-telemetry</strong> – autorskie
+                        oprogramowanie do analizy danych i optymalizacji setupów, na ostatniej prostej przed wdrożeniem.
+                        Jednocześnie powstaje <strong style="color:var(--text)">sekcja rajdowa</strong> w Assetto Corsa
+                        Rally
+                        i legendarnym Richard Burns Rally (RBR). Wchodzimy tam z tą samą dyscypliną, która dała nam
+                        mistrzostwo w WEC.</div>
                 </div>
             </div>
         </div>
     </section>
 
 
-    <!-- ===== MANAGEMENT ===== -->
-    <section id="management">
+    <!-- ===== ROSTER ===== -->
+    <section id="roster">
+        <div class="speed-streaks">
+            <div class="streak streak--left streak--5"></div>
+            <div class="streak streak--right streak--6"></div>
+            <div class="streak streak--left streak--b1"></div>
+            <div class="streak streak--right streak--b2"></div>
+            <div class="streak streak--left streak--b3"></div>
+            <div class="streak streak--right streak--b4"></div>
+            <div class="streak streak--left streak--b5"></div>
+            <div class="streak streak--right streak--b6"></div>
+        </div>
         <div class="section-header">
-            <div class="section-label">// STRUKTURA ZESPOŁU</div>
-            <h2 class="section-title">MANAGEMENT</h2>
+            <div class="section-label" data-i18n="roster_label">// ZESPÓŁ</div>
+            <h2 class="section-title" data-i18n="roster_title">TEAM</h2>
             <div class="section-line"></div>
         </div>
+        
+        <div class="roster-tabs">
+            <button class="roster-tab active" data-roster-target="roster-mgmt" data-i18n="tab_mgmt">MANAGEMENT</button>
+            <button class="roster-tab" data-roster-target="roster-drivers" data-i18n="tab_drivers">KIEROWCY</button>
+        </div>
+
         <div class="mgmt-scroll-wrap">
+            <!-- ===== VIEW: MANAGEMENT ===== -->
+            <div id="roster-mgmt" class="roster-view active-view">
+                <!-- TIER 1: FOUNDERS -->
+                <div class="mgmt-tier-label mgmt-tier-label--gold">👑 FOUNDERS</div>
             <div class="mgmt-grid">
-                <div class="member-card-new">
-                    <div class="member-avatar-new">🏁</div>
+                <div class="member-card-new member-card-new--founder">
+                    <div class="member-avatar-new suit-matched-led-founder" style="border-color:#fbbf24; box-shadow:0 0 16px rgba(251,191,36,0.5); padding:0;">
+                        <img src="avatar_czajkowski.jpg" alt="Michał Czajkowski">
+                    </div>
                     <div class="member-info">
                         <div class="member-name-new">MICHAŁ CZAJKOWSKI</div>
                         <div class="member-role-new">FOUNDER &amp; IT</div>
                         <div class="member-number">#77</div>
-                        <div class="member-desc-new">Założyciel Vistula Racing Team. Odpowiada za infrastrukturę IT,
+                        <div class="member-desc-new" data-i18n="mgmt_desc_mc">Założyciel Vistula Racing Team. Odpowiada za infrastrukturę IT,
                             stronę internetową oraz aktywnie uczestniczy w działaniach medialnych zespołu. Kierowca
                             klasy LMGT3.</div>
-                        <div class="member-tags"><span class="mtag">Founder</span><span class="mtag">IT</span><span
-                                class="mtag">Driver</span></div>
+                        <div class="member-tags"><span class="mtag mtag--gold">Founder</span><span
+                                class="mtag">IT</span><span class="mtag">Driver</span></div>
                     </div>
                 </div>
+                <div class="member-card-new member-card-new--founder">
+                    <div class="member-avatar-new suit-matched-led-blue" style="border-color:#3b82f6; box-shadow:0 0 16px rgba(59,130,246,0.3); padding:0;">
+                        <img src="avatar_kardas.jpg" alt="Jakub Kardas">
+                    </div>
+                    <div class="member-info">
+                        <div class="member-name-new">JAKUB KARDAS</div>
+                        <div class="member-role-new">CO-FOUNDER &amp; ACADEMY DIRECTOR</div>
+                        <div class="member-number">#777</div>
+                        <div class="member-desc-new" data-i18n="mgmt_desc_jk">Współzałożyciel zespołu i dyrektor programu Vistula Academy.
+                            Aktywny kierowca Hypercar #777 – debiut HEC Portimão 25.02.2026, wynik P2/P4
+                            na Aston Martin Valkyrie. Wspiera media i rozwój młodych talentów.</div>
+                        <div class="member-tags"><span class="mtag mtag--gold">Co-Founder</span><span
+                                class="mtag">Academy</span><span class="mtag">Hypercar</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIER 2: LEADERSHIP -->
+            <div class="mgmt-tier-label">⚙ LEADERSHIP</div>
+            <div class="mgmt-grid">
                 <div class="member-card-new">
                     <div class="member-avatar-new">👑</div>
                     <div class="member-info">
                         <div class="member-name-new">GRZEGORZ ZELGA</div>
                         <div class="member-role-new">TEAM PRINCIPAL</div>
                         <div class="member-number">–</div>
-                        <div class="member-desc-new">Team Principal odpowiedzialny za strategię, decyzje operacyjne i
+                        <div class="member-desc-new" data-i18n="mgmt_desc_gz">Team Principal odpowiedzialny za strategię, decyzje operacyjne i
                             reprezentację zespołu na arenie ligowej WEC / HEC.</div>
                         <div class="member-tags"><span class="mtag">Strategy</span><span class="mtag">Management</span>
                         </div>
                     </div>
                 </div>
                 <div class="member-card-new">
-                    <div class="member-avatar-new">🎓</div>
-                    <div class="member-info">
-                        <div class="member-name-new">JAKUB KARDAS</div>
-                        <div class="member-role-new">ACADEMY DIRECTOR &amp; MEDIA</div>
-                        <div class="member-number">#777</div>
-                        <div class="member-desc-new">Kieruje programem Vistula Academy. Aktywny kierowca Hypercar #777 –
-                            debiut HEC Portimão 25.02.2026, wynik P2/P4 na Aston Martin Valkyrie. Wspiera media.</div>
-                        <div class="member-tags"><span class="mtag">Academy</span><span class="mtag">Media</span><span
-                                class="mtag">Hypercar</span></div>
+                    <div class="member-avatar-new suit-matched-led-founder" style="border-color:#fbbf24; box-shadow:0 0 16px rgba(251,191,36,0.5); padding:0;">
+                        <img src="avatar_ogorzelski.jpg" alt="Krystian Ogorzelski">
                     </div>
-                </div>
-                <div class="member-card-new">
-                    <div class="member-avatar-new">🔧</div>
                     <div class="member-info">
                         <div class="member-name-new">KRYSTIAN OGORZELSKI</div>
-                        <div class="member-role-new">SETUP &amp; TAKTYKI</div>
+                        <div class="member-role-new" data-i18n="mgmt_role_ko">SETUP &amp; TAKTYKI</div>
                         <div class="member-number">#77</div>
-                        <div class="member-desc-new">Odpowiada za setup samochodów i taktykę wyścigową. Za kierownicą
+                        <div class="member-desc-new" data-i18n="mgmt_desc_ko">Odpowiada za setup samochodów i taktykę wyścigową. Za kierownicą
                             #77 Aston Martin Vantage GT3 „Red Dream" wygrał Test Race HEC w Portimão oraz debiut Porsche
                             963.</div>
                         <div class="member-tags"><span class="mtag">Setup</span><span class="mtag">Tactics</span><span
                                 class="mtag">GT3</span></div>
                     </div>
                 </div>
+            </div>
+
+            <!-- TIER 3: TEAM -->
+            <div class="mgmt-tier-label">🎬 TEAM</div>
+            <div class="mgmt-grid">
                 <div class="member-card-new">
-                    <div class="member-avatar-new">🎬</div>
+                    <div class="member-avatar-new suit-matched-led-pink" style="border-color:#e91ec8; box-shadow:0 0 16px rgba(233,30,200,0.4); padding:0;">
+                        <img src="avatar_kruhan.jpg" alt="Karlo Kruhan">
+                    </div>
                     <div class="member-info">
                         <div class="member-name-new">KARLO KRUHAN</div>
-                        <div class="member-role-new">MEDIA &amp; KIEROWCA</div>
+                        <div class="member-role-new" data-i18n="mgmt_role_kk">MEDIA &amp; KIEROWCA</div>
                         <div class="member-number">#777</div>
-                        <div class="member-desc-new">Kierowca Hypercar Aston Martin Valkyrie #777 – debiut HEC Portimão
+                        <div class="member-desc-new" data-i18n="mgmt_desc_kk">Kierowca Hypercar Aston Martin Valkyrie #777 – debiut HEC Portimão
                             P2/P4. Odpowiada za content video i komunikację medialną Vistula Racing.</div>
                         <div class="member-tags"><span class="mtag">Media</span><span class="mtag">Hypercar</span><span
                                 class="mtag">Video</span></div>
                     </div>
                 </div>
                 <div class="member-card-new">
-                    <div class="member-avatar-new">📸</div>
+                    <div class="member-avatar-new suit-matched-led" style="border-color:#d946ef; box-shadow:0 0 16px rgba(217,70,239,0.3); padding:0;">
+                        <img src="avatar_dejworek.jpg" alt="Michał Dejworek">
+                    </div>
                     <div class="member-info">
                         <div class="member-name-new">MICHAŁ DEJWOREK</div>
                         <div class="member-role-new">MEDIA</div>
                         <div class="member-number">–</div>
-                        <div class="member-desc-new">Twórca contentu i materiałów graficznych dla Vistula Racing w
+                        <div class="member-desc-new" data-i18n="mgmt_desc_md">Twórca contentu i materiałów graficznych dla Vistula Racing w
                             mediach społecznościowych i kanałach komunikacji zewnętrznej.</div>
                         <div class="member-tags"><span class="mtag">Graphics</span><span class="mtag">Social
                                 Media</span></div>
                     </div>
                 </div>
                 <div class="member-card-new">
-                    <div class="member-avatar-new">📡</div>
+                    <div class="member-avatar-new suit-matched-led-tiger" style="border-color:#f97316; box-shadow:0 0 16px rgba(249,115,22,0.4); padding:0;">
+                        <img src="avatar_bogucki.jpg" alt="Błażej Bogucki">
+                    </div>
                     <div class="member-info">
                         <div class="member-name-new">BŁAŻEJ BOGUCKI</div>
                         <div class="member-role-new">MEDIA / STREAM</div>
                         <div class="member-number">–</div>
-                        <div class="member-desc-new">Produkcja materiałów wideo, relacje i stream z wyścigów Vistula
+                        <div class="member-desc-new" data-i18n="mgmt_desc_bb">Produkcja materiałów wideo, relacje i stream z wyścigów Vistula
                             Racing na platformach streamingowych i social media.</div>
                         <div class="member-tags"><span class="mtag">Streaming</span><span class="mtag">Video</span>
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
+
+            <!-- ===== VIEW: DRIVERS ===== -->
+            <div id="roster-drivers" class="roster-view" style="display:none; padding-bottom: 50px;">
+                
+                <!-- TIER: ENDURANCE TEAM -->
+                <div class="driver-category cat-endurance">
+                    <div class="mgmt-tier-label" style="color:var(--blue); text-shadow:0 0 10px rgba(0,170,255,0.4);">🔵 ENDURANCE TEAM</div>
+                    
+                    <!-- Car #77 -->
+                    <div style="font-family:'Exo 2',sans-serif;font-size:.8rem;color:var(--text-dim);letter-spacing:3px;margin:20px 0 10px;text-align:center;">SAMOCHÓD #77</div>
+                    <div class="mgmt-grid">
+                        <div class="member-card-new driver-card-anim anim-fade-up">
+                            <div class="member-avatar-new suit-matched-led-founder" style="border-color:#fbbf24; box-shadow:0 0 16px rgba(251,191,36,0.5); padding:0;">
+                                <img src="avatar_czajkowski.jpg" alt="Michał Czajkowski">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">MICHAŁ CZAJKOWSKI</div>
+                                <div class="member-role-new">MAIN DRIVER</div>
+                                <div class="member-number">#77</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2024</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">Tytuł mistrzowski z zespołem #77</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Założyciel zespołu, odpowiada za rozwój projektu i decyzje strategiczne. Na torze znany z równej i spokojnej jazdy.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-fade-up">
+                            <div class="member-avatar-new suit-matched-led-founder" style="border-color:#fbbf24; box-shadow:0 0 16px rgba(251,191,36,0.5); padding:0;">
+                                <img src="avatar_ogorzelski.jpg" alt="Krystian Ogorzelski">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">KRYSTIAN OGORZELSKI</div>
+                                <div class="member-role-new">MAIN DRIVER</div>
+                                <div class="member-number">#77</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2025</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">Tytuł mistrzowski z zespołem #77</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Lider zespołu, analityczne podejście do strategii wyścigowej i setupów. Wspiera rozwój młodszych kierowców.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-fade-up">
+                            <div class="member-avatar-new suit-matched-led-blue" style="border-color:#3b82f6; box-shadow:0 0 16px rgba(59,130,246,0.3); padding:0;">
+                                <img src="avatar_kardas.jpg" alt="Jakub Kardas">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">JAKUB KARDAS</div>
+                                <div class="member-role-new">MAIN DRIVER</div>
+                                <div class="member-number">#77</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2024</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">P2 Ginetta Supercup Split 1 - Mid-Ohio</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Opanowany i analityczny kierowca, skupiony na stabilnym tempie i czystości jazdy. Wspiera także kwestie organizacyjne.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-fade-up">
+                            <div class="member-avatar-new suit-matched-led-green" style="border-color:#39ff14; box-shadow:0 0 16px rgba(57,255,20,0.4); padding:0;">
+                                <img src="avatar_fabis.jpg" alt="Przemek Fabiś">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">PRZEMEK FABIŚ</div>
+                                <div class="member-role-new">MAIN DRIVER</div>
+                                <div class="member-number">#77</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2025</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">P2 Hypercar - Monza 6h</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Systematyczny i zaangażowany kierowca, dobrze radzący sobie w wyścigach długodystansowych.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Car #777 -->
+                    <div style="font-family:'Exo 2',sans-serif;font-size:.8rem;color:var(--text-dim);letter-spacing:3px;margin:30px 0 10px;text-align:center;">SAMOCHÓD #777</div>
+                    <div class="mgmt-grid">
+                        <div class="member-card-new driver-card-anim anim-fade-up">
+                            <div class="member-avatar-new" style="color:var(--blue);">
+                                <!-- <img src="link_do_zdjecia.jpg" alt="Avatar"> -->
+                                🚀
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">WIKTOR KOCIĘDA</div>
+                                <div class="member-role-new">MAIN DRIVER</div>
+                                <div class="member-number">#777</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2026</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">P5 - Le Mans 12h</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Nowy kierowca w głównym składzie, wzmacnia drugi samochód i rozwija się w strukturach zespołu.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-fade-up">
+                            <div class="member-avatar-new suit-matched-led-pink" style="border-color:#e91ec8; box-shadow:0 0 16px rgba(233,30,200,0.4); padding:0;">
+                                <img src="avatar_kruhan.jpg" alt="Karlo Kruhan">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">KARLO KRUHAN</div>
+                                <div class="member-role-new">MAIN DRIVER</div>
+                                <div class="member-number">#777</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2025</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">P5 - Le Mans 12h</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Awansowany z akademii, spokojny i systematyczny zawodnik z dużym potencjałem.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-fade-up">
+                            <div class="member-avatar-new suit-matched-led-blue" style="border-color:#1e90ff; box-shadow:0 0 16px rgba(30,144,255,0.4); padding:0;">
+                                <img src="avatar_dusek.jpg" alt="Fabian Dusek">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">FABIAN DUSEK</div>
+                                <div class="member-role-new">MAIN DRIVER</div>
+                                <div class="member-number">#777</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2025</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">P2 LMGT3 - Monza 6h Split 3</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Opanowany kierowca endurance, stabilna jazda i dobra współpraca zespołowa.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /endurance-team -->
+
+                <!-- TIER: RESERVE DRIVERS -->
+                <div class="driver-category cat-reserve" style="margin-top: 40px;">
+                    <div class="mgmt-tier-label" style="color:#aaa; text-shadow:0 0 10px rgba(170,170,170,0.4);">⚪ RESERVE DRIVERS</div>
+                    <div class="mgmt-grid">
+                        <div class="member-card-new driver-card-anim anim-slide-left">
+                            <div class="member-avatar-new" style="color:#aaa;">
+                                <!-- <img src="link_do_zdjecia.jpg" alt="Avatar"> -->
+                                💺
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">STEPHEN FRASER</div>
+                                <div class="member-role-new">RESERVE DRIVER</div>
+                                <div class="member-number">–</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2024</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">P1 Monaco - WEFC</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Doświadczony kierowca rezerwowy, wspiera zespół także od strony organizacyjnej.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-slide-left">
+                            <div class="member-avatar-new" style="color:#aaa;">
+                                <!-- <img src="link_do_zdjecia.jpg" alt="Avatar"> -->
+                                💺
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">MICHAŁ LODOMIR</div>
+                                <div class="member-role-new">RESERVE DRIVER</div>
+                                <div class="member-number">–</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2025</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">Brak danych</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Kierowca z dużym potencjałem, obecnie pełni rolę rezerwowego.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-slide-left">
+                            <div class="member-avatar-new" style="color:#aaa;">
+                                <!-- <img src="link_do_zdjecia.jpg" alt="Avatar"> -->
+                                💺
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">DAMIAN RACIBORSKI</div>
+                                <div class="member-role-new">RESERVE DRIVER</div>
+                                <div class="member-number">–</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2025</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">Brak danych</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Rezerwowy kierowca wspierający zespół w wybranych startach.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /reserve-drivers -->
+
+                <!-- TIER: ACADEMY -->
+                <div class="driver-category cat-academy" style="margin-top: 40px;">
+                    <div class="mgmt-tier-label" style="color:#22c55e; text-shadow:0 0 10px rgba(34,197,94,0.4);">🟢 ACADEMY</div>
+                    <div class="mgmt-grid">
+                        <div class="member-card-new driver-card-anim anim-slide-right-scale">
+                            <div class="member-avatar-new" style="color:#22c55e;">
+                                <!-- <img src="link_do_zdjecia.jpg" alt="Avatar"> -->
+                                🎓
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">PIOTR KOZIOŁ</div>
+                                <div class="member-role-new">ACADEMY DRIVER</div>
+                                <div class="member-number">–</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2025</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">P6 - Idola 6h</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Rozwija swoje umiejętności, regularnie bierze udział w wyścigach i projektach szkoleniowych.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-slide-right-scale">
+                            <div class="member-avatar-new suit-matched-led-tiger" style="border-color:#f97316; box-shadow:0 0 16px rgba(249,115,22,0.4); padding:0;">
+                                <img src="avatar_bogucki.jpg" alt="Błażej Bogucki">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">BŁAŻEJ BOGUCKI</div>
+                                <div class="member-role-new">ACADEMY DRIVER</div>
+                                <div class="member-number">–</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2025</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">P7 - Spa 4h Solo</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Opanowany kierowca akademii, pracuje nad tempem i doświadczeniem wyścigowym.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-slide-right-scale">
+                            <div class="member-avatar-new suit-matched-led-teal" style="border-color:#0ea5e9; box-shadow:0 0 16px rgba(14,165,233,0.4); padding:0;">
+                                <img src="avatar_podpirko.jpg" alt="Dawid Podpirko">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">DAWID PODPIRKO</div>
+                                <div class="member-role-new">ACADEMY DRIVER</div>
+                                <div class="member-number">–</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2024</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">P7 - Le Mans 24h</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Rozwija stabilność jazdy i tempo, pracuje nad doświadczeniem w długodystansowych wyścigach.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-slide-right-scale">
+                            <div class="member-avatar-new suit-matched-led-pink" style="border-color:#ec4899; box-shadow:0 0 16px rgba(236,72,153,0.4); padding:0;">
+                                <img src="avatar_sawa.jpg" alt="Marcel Sawa">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">MARCEL SAWA</div>
+                                <div class="member-role-new">ACADEMY DRIVER</div>
+                                <div class="member-number">–</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2026</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">P31 - Portimão 4h</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Spokojny kierowca, skupia się na zdobywaniu doświadczenia i poprawie tempa.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-slide-right-scale">
+                            <div class="member-avatar-new" style="color:#22c55e;">
+                                <!-- <img src="link_do_zdjecia.jpg" alt="Avatar"> -->
+                                🎓
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">FILIP JAKUBIAK</div>
+                                <div class="member-role-new">ACADEMY DRIVER</div>
+                                <div class="member-number">–</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2026</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">P32 - Portimão 4h</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Rozwija swoje umiejętności i doświadczenie w startach zespołowych.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-slide-right-scale">
+                            <div class="member-avatar-new" style="color:#22c55e;">
+                                <!-- <img src="link_do_zdjecia.jpg" alt="Avatar"> -->
+                                🎓
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">RYSZARD BIAŁCZYK</div>
+                                <div class="member-role-new">ACADEMY DRIVER</div>
+                                <div class="member-number">–</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2025</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">P26 - Monza 6h</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Opanowany kierowca akademii, koncentruje się na zdobywaniu doświadczenia i tempie.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-slide-right-scale">
+                            <div class="member-avatar-new" style="color:#22c55e;">
+                                <!-- <img src="link_do_zdjecia.jpg" alt="Avatar"> -->
+                                🎓
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">OSKAR KOSA</div>
+                                <div class="member-role-new">ACADEMY DRIVER</div>
+                                <div class="member-number">–</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2026</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">Brak osiągnięć</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Nowy kierowca akademii, rozwija swoje umiejętności i doświadczenie w strukturach Vistula Racing.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div> <!-- /academy -->
+
+                <!-- TIER: RALLY DIVISION -->
+                <div class="driver-category cat-rally anim-bg-rally" style="margin-top: 40px; padding: 20px; border-radius: 8px;">
+                    <div class="mgmt-tier-label" style="color:#f97316; text-shadow:0 0 15px rgba(249,115,22,0.6); font-size:1.1rem; letter-spacing: 8px;">🔥 RALLY DIVISION</div>
+                    <div class="mgmt-grid">
+                        <div class="member-card-new driver-card-anim anim-3d-rotate suit-matched-led">
+                            <!-- Zdjęcie Dejworka -->
+                            <div class="member-avatar-new" style="border-color:#d946ef; box-shadow:0 0 16px rgba(217,70,239,0.3); padding:0;">
+                                <img src="avatar_dejworek.jpg" alt="Michał Dejworek">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">MICHAŁ DEJWOREK</div>
+                                <div class="member-role-new">RALLY DRIVER</div>
+                                <div class="member-number">–</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2026</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">Brak danych</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Nowy kierowca rajdowy, rozwija rajdową część zespołu i reprezentuje barwy Vistula Racing.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-card-new driver-card-anim anim-3d-rotate">
+                            <div class="member-avatar-new suit-matched-led-cyan" style="border-color:#00d4ff; box-shadow:0 0 16px rgba(0,212,255,0.4); padding:0;">
+                                <img src="avatar_cezary.jpg" alt="Cezary Z.">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-new">CEZARY Z.</div>
+                                <div class="member-role-new">RALLY DRIVER</div>
+                                <div class="member-number">–</div>
+                                <div class="member-meta">
+                                    <span><strong>Dołączył:</strong> 2026</span>
+                                </div>
+                                <div class="expand-indicator" style="margin-top: 10px; font-size: 0.75rem; color: var(--blue); cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">Rozwiń profil ▼</div>
+                                <div class="member-extended-bio" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Największe Osiągnięcie:</strong><br>
+                                        <span class="bio-value">Brak danych</span>
+                                    </div>
+                                    <div class="bio-section" style="margin-bottom: 10px;">
+                                        <strong style="color: var(--text);">Biografia:</strong><br>
+                                        <span class="bio-value">Nowy kierowca rajdowy, wspiera Michała Dejworka w rozwoju części rally zespołu.</span>
+                                    </div>
+                                    <div class="bio-section">
+                                        <strong style="color: var(--text);">Inne Informacje:</strong><br>
+                                        <span class="bio-value">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /rally-division -->
+
+            </div> <!-- /roster-drivers -->
         </div>
     </section>
 
 
     <!-- ===== ACADEMY ===== -->
     <section id="academy">
+        <div class="speed-streaks">
+            <div class="streak streak--left streak--7"></div>
+            <div class="streak streak--right streak--8"></div>
+            <div class="streak streak--left streak--c1"></div>
+            <div class="streak streak--right streak--c2"></div>
+            <div class="streak streak--left streak--c3"></div>
+            <div class="streak streak--right streak--c4"></div>
+            <div class="streak streak--left streak--c5"></div>
+            <div class="streak streak--right streak--c6"></div>
+        </div>
         <div class="section-header">
-            <div class="section-label">// PROGRAM SZKOLENIOWY</div>
+            <div class="section-label" data-i18n="acad_label">// PROGRAM SZKOLENIOWY</div>
             <h2 class="section-title">VISTULA ACADEMY</h2>
             <div class="section-line"></div>
         </div>
         <div class="academy-hero">
             <div style="font-size:2.5rem;margin-bottom:16px">🏁</div>
             <h3
-                style="font-family:'Orbitron',monospace;font-size:1.2rem;color:var(--blue);margin-bottom:12px;letter-spacing:2px">
+                style="font-family:'Exo 2',sans-serif;font-size:1.2rem;color:var(--blue);margin-bottom:12px;letter-spacing:2px"
+                data-i18n="acad_hero">
                 TWOJA DROGA DO PROFESJONALNEGO SIMRACINGU</h3>
-            <p style="color:var(--text-dim);max-width:600px;margin:0 auto;line-height:1.8">
+            <p style="color:var(--text-dim);max-width:600px;margin:0 auto;line-height:1.8" data-i18n="acad_desc">
                 Vistula Academy to kompleksowy program szkoleniowy dla kierowców z potencjałem. Oferujemy coaching,
                 dostęp do analiz telemetrii, sesje z doświadczonymi kierowcami głównego składu oraz ścieżkę awansu do
                 pełnoprawnego teamdrivera.
@@ -301,7 +1068,7 @@
         </div>
         <div class="academy-grid">
             <div class="card">
-                <h4 style="font-family:'Orbitron',monospace;color:var(--blue);margin-bottom:16px;font-size:.9rem">📋
+                <h4 style="font-family:'Exo 2',sans-serif;color:var(--blue);margin-bottom:16px;font-size:.9rem">📋
                     WYMAGANIA</h4>
                 <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
                     <li style="color:var(--text-dim);font-size:.9rem;display:flex;gap:10px"><span
@@ -317,7 +1084,7 @@
                 </ul>
             </div>
             <div class="card">
-                <h4 style="font-family:'Orbitron',monospace;color:var(--blue);margin-bottom:16px;font-size:.9rem">🚀 CO
+                <h4 style="font-family:'Exo 2',sans-serif;color:var(--blue);margin-bottom:16px;font-size:.9rem">🚀 CO
                     OFERUJEMY</h4>
                 <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
                     <li style="color:var(--text-dim);font-size:.9rem;display:flex;gap:10px"><span
@@ -333,7 +1100,7 @@
                 </ul>
             </div>
             <div class="card">
-                <h4 style="font-family:'Orbitron',monospace;color:var(--blue);margin-bottom:16px;font-size:.9rem">📈
+                <h4 style="font-family:'Exo 2',sans-serif;color:var(--blue);margin-bottom:16px;font-size:.9rem">📈
                     ETAPY PROGRAMU</h4>
                 <div style="display:flex;flex-direction:column;gap:14px">
                     <div class="acad-step">
@@ -374,8 +1141,18 @@
 
     <!-- ===== HALL OF FAME ===== -->
     <section id="hof" style="min-height:auto;padding-bottom:100px;">
+        <div class="speed-streaks">
+            <div class="streak streak--left streak--9"></div>
+            <div class="streak streak--right streak--10"></div>
+            <div class="streak streak--left streak--d1"></div>
+            <div class="streak streak--right streak--d2"></div>
+            <div class="streak streak--left streak--d3"></div>
+            <div class="streak streak--right streak--d4"></div>
+            <div class="streak streak--left streak--d5"></div>
+            <div class="streak streak--right streak--d6"></div>
+        </div>
         <div class="section-header">
-            <div class="section-label">// OSIĄGNIĘCIA</div>
+            <div class="section-label" data-i18n="hof_label">// OSIĄGNIĘCIA</div>
             <h2 class="section-title">HALL OF FAME</h2>
             <div class="section-line"></div>
         </div>
@@ -391,13 +1168,13 @@
                     style="font-size:5rem;margin-bottom:12px;line-height:1;filter:drop-shadow(0 0 20px rgba(255,215,0,0.6))">
                     🏆</div>
                 <div
-                    style="font-family:'Orbitron',monospace;font-size:.65rem;letter-spacing:5px;color:#0af;margin-bottom:12px;">
+                    style="font-family:'Exo 2',sans-serif;font-size:.65rem;letter-spacing:5px;color:#0af;margin-bottom:12px;">
                     TEAM CHAMPIONSHIP</div>
                 <h3
-                    style="font-family:'Orbitron',monospace;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;color:#fff;margin-bottom:8px;letter-spacing:2px;">
+                    style="font-family:'Exo 2',sans-serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;color:#fff;margin-bottom:8px;letter-spacing:2px;">
                     WEC CHAMPIONSHIP 2026</h3>
                 <div
-                    style="font-family:'Orbitron',monospace;font-size:1rem;color:#ffd700;letter-spacing:3px;text-shadow:0 0 15px rgba(255,215,0,0.5);margin-bottom:20px;">
+                    style="font-family:'Exo 2',sans-serif;font-size:1rem;color:#ffd700;letter-spacing:3px;text-shadow:0 0 15px rgba(255,215,0,0.5);margin-bottom:20px;">
                     TYTUŁ POLSKI · #77 · #776 · #777</div>
                 <p style="color:var(--text-dim);max-width:600px;margin:0 auto;line-height:1.8;font-size:.95rem;">
                     30 stycznia 2026. Vistula Racing zdobywa tytuł drużynowego mistrza w Team Championship WEC.
@@ -414,8 +1191,8 @@
                 <div class="card hof-stat"
                     style="text-align:center;padding:28px 16px;opacity:0;transform:translateY(30px);transition:all .7s .1s ease;">
                     <div style="font-size:2.6rem;margin-bottom:8px">🥇</div>
-                    <div class="stat-num hof-count" data-target="5"
-                        style="font-family:'Orbitron',monospace;font-size:2.2rem;font-weight:900;color:#ffd700;text-shadow:0 0 15px rgba(255,215,0,0.5);">
+                    <div class="stat-num hof-count" data-target="6"
+                        style="font-family:'Exo 2',sans-serif;font-size:2.2rem;font-weight:900;color:#ffd700;text-shadow:0 0 15px rgba(255,215,0,0.5);">
                         0</div>
                     <div style="font-size:.7rem;letter-spacing:3px;color:var(--text-dim);margin-top:6px;">WYGRANE
                         WYŚCIGI</div>
@@ -423,8 +1200,8 @@
                 <div class="card hof-stat"
                     style="text-align:center;padding:28px 16px;opacity:0;transform:translateY(30px);transition:all .7s .2s ease;">
                     <div style="font-size:2.6rem;margin-bottom:8px">🏅</div>
-                    <div class="stat-num hof-count" data-target="12"
-                        style="font-family:'Orbitron',monospace;font-size:2.2rem;font-weight:900;color:#0af;text-shadow:0 0 15px rgba(0,170,255,0.5);">
+                    <div class="stat-num hof-count" data-target="14"
+                        style="font-family:'Exo 2',sans-serif;font-size:2.2rem;font-weight:900;color:#0af;text-shadow:0 0 15px rgba(0,170,255,0.5);">
                         0</div>
                     <div style="font-size:.7rem;letter-spacing:3px;color:var(--text-dim);margin-top:6px;">PODIUM</div>
                 </div>
@@ -432,7 +1209,7 @@
                     style="text-align:center;padding:28px 16px;opacity:0;transform:translateY(30px);transition:all .7s .3s ease;">
                     <div style="font-size:2.6rem;margin-bottom:8px">🏁</div>
                     <div class="stat-num hof-count" data-target="25"
-                        style="font-family:'Orbitron',monospace;font-size:2.2rem;font-weight:900;color:#0af;text-shadow:0 0 15px rgba(0,170,255,0.5);">
+                        style="font-family:'Exo 2',sans-serif;font-size:2.2rem;font-weight:900;color:#0af;text-shadow:0 0 15px rgba(0,170,255,0.5);">
                         0</div>
                     <div style="font-size:.7rem;letter-spacing:3px;color:var(--text-dim);margin-top:6px;">STARTY</div>
                 </div>
@@ -440,7 +1217,7 @@
                     style="text-align:center;padding:28px 16px;opacity:0;transform:translateY(30px);transition:all .7s .4s ease;">
                     <div style="font-size:2.6rem;margin-bottom:8px">🏆</div>
                     <div class="stat-num hof-count" data-target="1"
-                        style="font-family:'Orbitron',monospace;font-size:2.2rem;font-weight:900;color:#ffd700;text-shadow:0 0 15px rgba(255,215,0,0.5);">
+                        style="font-family:'Exo 2',sans-serif;font-size:2.2rem;font-weight:900;color:#ffd700;text-shadow:0 0 15px rgba(255,215,0,0.5);">
                         0</div>
                     <div style="font-size:.7rem;letter-spacing:3px;color:var(--text-dim);margin-top:6px;">TYTUŁY</div>
                 </div>
@@ -506,9 +1283,23 @@
                         <div class="tp-note">Samochód #77 LMGT3 · Debiut w HEC</div>
                     </div>
                 </div>
-                <!-- Trophy 5 – Championship -->
-                <div class="hof-trophy-item hof-trophy-item--champ" data-delay="400"
+                <!-- Trophy 5 -->
+                <div class="hof-trophy-item" data-delay="400"
                     style="opacity:0;transform:translateY(40px) scale(.9);transition:all .6s .4s ease;">
+                    <div class="trophy-glow gold"></div>
+                    <div class="trophy-emoji">🥇</div>
+                    <div class="trophy-label">Portimão 90min</div>
+                    <div class="trophy-sublabel">LMGT3 · HEC</div>
+                    <div class="trophy-popup">
+                        <div class="tp-title">🥇 Portimão 90min – HEC LMGT3</div>
+                        <div class="tp-date">04.03.2026</div>
+                        <div class="tp-driver">Krystian Ogorzelski</div>
+                        <div class="tp-note">Samochód #77 LMGT3 · Dominacja w HEC</div>
+                    </div>
+                </div>
+                <!-- Trophy 6 – Championship -->
+                <div class="hof-trophy-item hof-trophy-item--champ" data-delay="500"
+                    style="opacity:0;transform:translateY(40px) scale(.9);transition:all .6s .5s ease;">
                     <div class="trophy-glow gold"></div>
                     <div class="trophy-emoji">🏆</div>
                     <div class="trophy-label">Team Championship</div>
@@ -531,13 +1322,13 @@
                         🏆</div>
                     <div style="flex:1;">
                         <div
-                            style="font-family:'Orbitron',monospace;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;">
+                            style="font-family:'Exo 2',sans-serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;">
                             Team Championship – WEC / Le Mans Ultimate</div>
                         <div style="font-size:.85rem;color:var(--text-dim);">Tytuł drużynowego mistrza Polski · #77 ·
                             #776 · #777 · Vistula Racing Team</div>
                     </div>
                     <div
-                        style="font-family:'Orbitron',monospace;font-size:.7rem;color:#ffd700;letter-spacing:2px;white-space:nowrap;">
+                        style="font-family:'Exo 2',sans-serif;font-size:.7rem;color:#ffd700;letter-spacing:2px;white-space:nowrap;">
                         30.01.2026</div>
                 </div>
                 <div class="card hof-entry"
@@ -547,13 +1338,13 @@
                         🥇</div>
                     <div style="flex:1;">
                         <div
-                            style="font-family:'Orbitron',monospace;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;">
+                            style="font-family:'Exo 2',sans-serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;">
                             1st Race Win – Le Mans 2.4h · LMP2</div>
                         <div style="font-size:.85rem;color:var(--text-dim);">Stephen Fraser · + Pierwsze podium LMGT3:
                             Michał Czajkowski</div>
                     </div>
                     <div
-                        style="font-family:'Orbitron',monospace;font-size:.7rem;color:#0af;letter-spacing:2px;white-space:nowrap;">
+                        style="font-family:'Exo 2',sans-serif;font-size:.7rem;color:#0af;letter-spacing:2px;white-space:nowrap;">
                         27.09.2025</div>
                 </div>
                 <div class="card hof-entry"
@@ -563,13 +1354,13 @@
                         🥇</div>
                     <div style="flex:1;">
                         <div
-                            style="font-family:'Orbitron',monospace;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;">
+                            style="font-family:'Exo 2',sans-serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;">
                             Race Win – Imola 4h · LMGT3</div>
                         <div style="font-size:.85rem;color:var(--text-dim);">Michał Czajkowski / Dawid Podpirko ·
                             Samochód #42 (teraz #77)</div>
                     </div>
                     <div
-                        style="font-family:'Orbitron',monospace;font-size:.7rem;color:#0af;letter-spacing:2px;white-space:nowrap;">
+                        style="font-family:'Exo 2',sans-serif;font-size:.7rem;color:#0af;letter-spacing:2px;white-space:nowrap;">
                         23.11.2025</div>
                 </div>
                 <div class="card hof-entry"
@@ -579,13 +1370,13 @@
                         🥇</div>
                     <div style="flex:1;">
                         <div
-                            style="font-family:'Orbitron',monospace;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;">
+                            style="font-family:'Exo 2',sans-serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;">
                             Race Win – Interlagos 6h · LMGT3</div>
                         <div style="font-size:.85rem;color:var(--text-dim);">Michał Czajkowski / Dawid Podpirko /
                             Nikodem Dąbrowski · #77</div>
                     </div>
                     <div
-                        style="font-family:'Orbitron',monospace;font-size:.7rem;color:#0af;letter-spacing:2px;white-space:nowrap;">
+                        style="font-family:'Exo 2',sans-serif;font-size:.7rem;color:#0af;letter-spacing:2px;white-space:nowrap;">
                         06.12.2025</div>
                 </div>
                 <div class="card hof-entry"
@@ -595,29 +1386,45 @@
                         🥇</div>
                     <div style="flex:1;">
                         <div
-                            style="font-family:'Orbitron',monospace;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;">
+                            style="font-family:'Exo 2',sans-serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;">
                             Test Race Win – Portimão 60min · HEC LMGT3</div>
                         <div style="font-size:.85rem;color:var(--text-dim);">Krystian Ogorzelski · #77 · Debiut w HEC
                         </div>
                     </div>
                     <div
-                        style="font-family:'Orbitron',monospace;font-size:.7rem;color:#0af;letter-spacing:2px;white-space:nowrap;">
+                        style="font-family:'Exo 2',sans-serif;font-size:.7rem;color:#0af;letter-spacing:2px;white-space:nowrap;">
                         25.02.2026</div>
                 </div>
                 <div class="card hof-entry"
                     style="display:flex;align-items:center;gap:24px;padding:24px 28px;opacity:0;transform:translateX(-40px);transition:all .7s .35s ease;">
                     <div
+                        style="font-size:3rem;min-width:56px;text-align:center;filter:drop-shadow(0 0 12px rgba(255,215,0,.5))">
+                        🥇</div>
+                    <div style="flex:1;">
+                        <div
+                            style="font-family:'Exo 2',sans-serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;">
+                            Race Win – Portimão 90min · HEC LMGT3</div>
+                        <div style="font-size:.85rem;color:var(--text-dim);">Krystian Ogorzelski · #77 · + P2 Fabian
+                            Dusek LMGT3 · P2 Jakub Kardas Hypercar</div>
+                    </div>
+                    <div
+                        style="font-family:'Exo 2',sans-serif;font-size:.7rem;color:#0af;letter-spacing:2px;white-space:nowrap;">
+                        04.03.2026</div>
+                </div>
+                <div class="card hof-entry"
+                    style="display:flex;align-items:center;gap:24px;padding:24px 28px;opacity:0;transform:translateX(-40px);transition:all .7s .4s ease;">
+                    <div
                         style="font-size:3rem;min-width:56px;text-align:center;filter:drop-shadow(0 0 12px rgba(192,192,192,.5))">
                         🥈</div>
                     <div style="flex:1;">
                         <div
-                            style="font-family:'Orbitron',monospace;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;">
+                            style="font-family:'Exo 2',sans-serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;">
                             P2 & P4 – Debiut HEC Hypercar</div>
                         <div style="font-size:.85rem;color:var(--text-dim);">Aston Martin Valkyrie #777 · Karlo Kruhan /
                             Jakub Kardas · Portimão</div>
                     </div>
                     <div
-                        style="font-family:'Orbitron',monospace;font-size:.7rem;color:#0af;letter-spacing:2px;white-space:nowrap;">
+                        style="font-family:'Exo 2',sans-serif;font-size:.7rem;color:#0af;letter-spacing:2px;white-space:nowrap;">
                         25.02.2026</div>
                 </div>
             </div>
@@ -657,122 +1464,334 @@
                 <button class="btn btn-outline" id="logout-btn"
                     style="font-size:.7rem;padding:8px 18px">WYLOGUJ</button>
             </div>
-            <div class="admin-cards">
-                <div class="admin-card">
-                    <div class="admin-card-num">15</div>
-                    <div class="admin-card-label">KIEROWCY</div>
+
+            <!-- PITWALL TAB NAVIGATION -->
+            <div class="pw-tabs">
+                <button class="pw-tab pw-tab--active" data-pw-tab="pw-dashboard">📊 Dashboard</button>
+                <button class="pw-tab" data-pw-tab="pw-analytics">📈 Analityka</button>
+                <button class="pw-tab" data-pw-tab="pw-messages">📨 Poczta <span id="pw-msg-badge" class="pw-badge" style="display:none">0</span></button>
+                <button class="pw-tab" data-pw-tab="pw-drivers">👥 Baza Kierowców</button>
+                <button class="pw-tab" data-pw-tab="pw-telemetry">🔧 VR-telemetry</button>
+            </div>
+
+            <!-- ══════ TAB: DASHBOARD ══════ -->
+            <div class="pw-panel pw-panel--active" id="pw-dashboard">
+                <div class="admin-cards">
+                    <div class="admin-card">
+                        <div class="admin-card-num">15</div>
+                        <div class="admin-card-label">KIEROWCY</div>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-num">6</div>
+                        <div class="admin-card-label">WYGRANE</div>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-num">14</div>
+                        <div class="admin-card-label">PODIUM</div>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-num">1</div>
+                        <div class="admin-card-label">TYTUŁY</div>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-num">6</div>
+                        <div class="admin-card-label">LIVERIE</div>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-num" id="pw-visit-count-dash">0</div>
+                        <div class="admin-card-label">ODWIEDZINY</div>
+                    </div>
                 </div>
-                <div class="admin-card">
-                    <div class="admin-card-num">5</div>
-                    <div class="admin-card-label">WYGRANE</div>
+                <div class="card" style="margin-bottom:24px">
+                    <h3 style="font-family:'Exo 2',sans-serif;color:var(--blue);margin-bottom:16px;font-size:.85rem">📋
+                        RYCHŁE LINKI</h3>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap">
+                        <span class="btn btn-outline pw-quick-link" data-pw-tab="pw-drivers" style="font-size:.7rem;cursor:pointer">👥 Zarządzaj kierowcami</span>
+                        <span class="btn btn-outline pw-quick-link" data-pw-tab="pw-telemetry" style="font-size:.7rem;cursor:pointer">📊 Telemetria</span>
+                        <span class="btn btn-outline pw-quick-link" data-pw-tab="pw-messages" style="font-size:.7rem;cursor:pointer">📨 Wiadomości</span>
+                        <span class="btn btn-outline pw-quick-link" data-pw-tab="pw-analytics" style="font-size:.7rem;cursor:pointer">📈 Analityka</span>
+                    </div>
                 </div>
-                <div class="admin-card">
-                    <div class="admin-card-num">12</div>
-                    <div class="admin-card-label">PODIUM</div>
+                <div class="card" style="margin-bottom:24px">
+                    <h3 style="font-family:'Exo 2',sans-serif;color:var(--blue);margin-bottom:16px;font-size:.85rem">📊
+                        WYNIKI ZESPOŁU 2025–2026</h3>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <div
+                            style="display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:12px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem;align-items:center;border-left:3px solid #ffd700;">
+                            <span>Le Mans 2.4h – LMP2 <span style="color:var(--text-dim);font-size:.75rem">Stephen
+                                    Fraser</span></span>
+                            <span style="color:#ffd700;font-weight:700">1st WIN</span>
+                            <span style="color:var(--text-dim)">27.09.2025</span>
+                        </div>
+                        <div
+                            style="display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:12px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem;align-items:center;border-left:3px solid #0af;">
+                            <span>Imola 4h – LMGT3 <span style="color:var(--text-dim);font-size:.75rem">Czajkowski /
+                                    Podpirko #42</span></span>
+                            <span style="color:#0af;font-weight:700">WIN</span>
+                            <span style="color:var(--text-dim)">23.11.2025</span>
+                        </div>
+                        <div
+                            style="display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:12px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem;align-items:center;border-left:3px solid #0af;">
+                            <span>Interlagos 6h – LMGT3 <span style="color:var(--text-dim);font-size:.75rem">Czajkowski /
+                                    Podpirko / Dąbrowski #77</span></span>
+                            <span style="color:#0af;font-weight:700">WIN</span>
+                            <span style="color:var(--text-dim)">06.12.2025</span>
+                        </div>
+                        <div
+                            style="display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:12px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem;align-items:center;border-left:3px solid #ffd700;">
+                            <span>Team Championship WEC <span style="color:var(--text-dim);font-size:.75rem">#77 · #776 ·
+                                    #777</span></span>
+                            <span style="color:#ffd700;font-weight:700">🏆 CHAMPION</span>
+                            <span style="color:var(--text-dim)">30.01.2026</span>
+                        </div>
+                        <div
+                            style="display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:12px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem;align-items:center;border-left:3px solid #0af;">
+                            <span>Test Race Portimão 60min HEC – LMGT3 <span
+                                    style="color:var(--text-dim);font-size:.75rem">Ogorzelski #77</span></span>
+                            <span style="color:#0af;font-weight:700">WIN</span>
+                            <span style="color:var(--text-dim)">25.02.2026</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="admin-card">
-                    <div class="admin-card-num">1</div>
-                    <div class="admin-card-label">TYTUŁY</div>
-                </div>
-                <div class="admin-card">
-                    <div class="admin-card-num">6</div>
-                    <div class="admin-card-label">LIVERIE</div>
-                </div>
-                <div class="admin-card">
-                    <div class="admin-card-num">3</div>
-                    <div class="admin-card-label">SAMOCHODY</div>
+                <div class="card">
+                    <h3 style="font-family:'Exo 2',sans-serif;color:var(--blue);margin-bottom:16px;font-size:.85rem">🕐
+                        OSTATNIA AKTYWNOŚĆ</h3>
+                    <div id="pw-activity-feed" style="display:flex;flex-direction:column;gap:10px">
+                        <div style="display:flex;justify-content:space-between;padding:10px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem">
+                            <span>Nowe zgłoszenie Academy – Paweł F.</span>
+                            <span style="color:var(--text-dim)">2h temu</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;padding:10px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem">
+                            <span>Wynik wyścigu: LMGT3 Portimão – 1st</span>
+                            <span style="color:var(--text-dim)">6d temu</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="card" style="margin-bottom:24px">
-                <h3 style="font-family:'Orbitron',monospace;color:var(--blue);margin-bottom:16px;font-size:.85rem">📋
-                    RYCHŁE LINKI</h3>
-                <div style="display:flex;gap:12px;flex-wrap:wrap">
-                    <span class="btn btn-outline" style="font-size:.7rem;cursor:default">📅 Harmonogram wyścigów</span>
-                    <span class="btn btn-outline" style="font-size:.7rem;cursor:default">👥 Zarządzaj kierowcami</span>
-                    <span class="btn btn-outline" style="font-size:.7rem;cursor:default">📊 Telemetria</span>
-                    <span class="btn btn-outline" style="font-size:.7rem;cursor:default">📨 Wiadomości (8)</span>
-                    <span class="btn btn-outline" style="font-size:.7rem;cursor:default">🚗 Liverie</span>
-                    <span class="btn btn-outline" style="font-size:.7rem;cursor:default">🏆 Hall of Fame</span>
+
+            <!-- ══════ TAB: ANALYTICS ══════ -->
+            <div class="pw-panel" id="pw-analytics">
+                <div class="pw-analytics-grid">
+                    <div class="card pw-analytics-card pw-analytics-card--big">
+                        <div class="pw-analytics-icon">👁️</div>
+                        <div class="pw-analytics-num" id="pw-total-visits">0</div>
+                        <div class="pw-analytics-label">ŁĄCZNE ODWIEDZINY</div>
+                    </div>
+                    <div class="card pw-analytics-card">
+                        <div class="pw-analytics-icon">📅</div>
+                        <div class="pw-analytics-num" id="pw-today-visits">0</div>
+                        <div class="pw-analytics-label">DZIŚ</div>
+                    </div>
+                    <div class="card pw-analytics-card">
+                        <div class="pw-analytics-icon">📆</div>
+                        <div class="pw-analytics-num" id="pw-week-visits">0</div>
+                        <div class="pw-analytics-label">TEN TYDZIEŃ</div>
+                    </div>
+                    <div class="card pw-analytics-card">
+                        <div class="pw-analytics-icon">🌍</div>
+                        <div class="pw-analytics-num" id="pw-unique-visitors">0</div>
+                        <div class="pw-analytics-label">UNIKALNI</div>
+                    </div>
                 </div>
-            </div>
-            <div class="card" style="margin-bottom:24px">
-                <h3 style="font-family:'Orbitron',monospace;color:var(--blue);margin-bottom:16px;font-size:.85rem">📊
-                    WYNIKI ZESPOŁU 2025–2026</h3>
-                <div style="display:flex;flex-direction:column;gap:10px">
-                    <div
-                        style="display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:12px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem;align-items:center;border-left:3px solid #ffd700;">
-                        <span>Le Mans 2.4h – LMP2 <span style="color:var(--text-dim);font-size:.75rem">Stephen
-                                Fraser</span></span>
-                        <span style="color:#ffd700;font-weight:700">1st WIN</span>
-                        <span style="color:var(--text-dim)">27.09.2025</span>
-                    </div>
-                    <div
-                        style="display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:12px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem;align-items:center;border-left:3px solid #0af;">
-                        <span>Imola 4h – LMGT3 <span style="color:var(--text-dim);font-size:.75rem">Czajkowski /
-                                Podpirko #42</span></span>
-                        <span style="color:#0af;font-weight:700">WIN</span>
-                        <span style="color:var(--text-dim)">23.11.2025</span>
-                    </div>
-                    <div
-                        style="display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:12px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem;align-items:center;border-left:3px solid #0af;">
-                        <span>Interlagos 6h – LMGT3 <span style="color:var(--text-dim);font-size:.75rem">Czajkowski /
-                                Podpirko / Dąbrowski #77</span></span>
-                        <span style="color:#0af;font-weight:700">WIN</span>
-                        <span style="color:var(--text-dim)">06.12.2025</span>
-                    </div>
-                    <div
-                        style="display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:12px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem;align-items:center;border-left:3px solid #ffd700;">
-                        <span>Team Championship WEC <span style="color:var(--text-dim);font-size:.75rem">#77 · #776 ·
-                                #777</span></span>
-                        <span style="color:#ffd700;font-weight:700">🏆 CHAMPION</span>
-                        <span style="color:var(--text-dim)">30.01.2026</span>
-                    </div>
-                    <div
-                        style="display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:12px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem;align-items:center;border-left:3px solid #0af;">
-                        <span>Test Race Portimão 60min HEC – LMGT3 <span
-                                style="color:var(--text-dim);font-size:.75rem">Ogorzelski #77</span></span>
-                        <span style="color:#0af;font-weight:700">WIN</span>
-                        <span style="color:var(--text-dim)">25.02.2026</span>
+                <div class="card" style="margin-top:24px">
+                    <h3 style="font-family:'Exo 2',sans-serif;color:var(--blue);margin-bottom:16px;font-size:.85rem">📊 OSTATNIE ODWIEDZINY</h3>
+                    <div id="pw-visit-log" style="display:flex;flex-direction:column;gap:8px;max-height:400px;overflow-y:auto">
+                        <div style="text-align:center;color:var(--text-dim);padding:20px;font-size:.85rem">Ładowanie danych...</div>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <h3 style="font-family:'Orbitron',monospace;color:var(--blue);margin-bottom:16px;font-size:.85rem">🕐
-                    OSTATNIA AKTYWNOŚĆ</h3>
-                <div style="display:flex;flex-direction:column;gap:10px">
-                    <div
-                        style="display:flex;justify-content:space-between;padding:10px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem">
-                        <span>Nowe zgłoszenie Academy – Paweł F.</span>
-                        <span style="color:var(--text-dim)">2h temu</span>
+
+            <!-- ══════ TAB: MESSAGES ══════ -->
+            <div class="pw-panel" id="pw-messages">
+                <div class="pw-msg-toolbar">
+                    <button class="btn btn-primary" id="pw-compose-btn" style="font-size:.7rem;padding:8px 18px">✏️ NOWA WIADOMOŚĆ</button>
+                    <button class="btn btn-outline" id="pw-refresh-msgs" style="font-size:.7rem;padding:8px 18px">🔄 ODŚWIEŻ</button>
+                </div>
+
+                <!-- Compose form (hidden by default) -->
+                <div class="card pw-compose-box" id="pw-compose-box" style="display:none;margin-bottom:24px">
+                    <h3 style="font-family:'Exo 2',sans-serif;color:var(--blue);margin-bottom:16px;font-size:.85rem">✏️ NAPISZ WIADOMOŚĆ</h3>
+                    <div class="form-group">
+                        <label style="color:var(--blue)">DO</label>
+                        <input type="text" id="pw-msg-to" placeholder="Nazwa odbiorcy, np. Jakub Kardas">
                     </div>
-                    <div
-                        style="display:flex;justify-content:space-between;padding:10px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem">
-                        <span>Wynik wyścigu: LMGT3 Portimão – 1st</span>
-                        <span style="color:var(--text-dim)">6d temu</span>
+                    <div class="form-group">
+                        <label style="color:var(--blue)">TEMAT</label>
+                        <input type="text" id="pw-msg-subject" placeholder="Temat wiadomości">
                     </div>
-                    <div
-                        style="display:flex;justify-content:space-between;padding:10px;background:rgba(0,170,255,0.05);border-radius:4px;font-size:.85rem">
-                        <span>Aktualizacja setupu – Portimão GT3</span>
-                        <span style="color:var(--text-dim)">7d temu</span>
+                    <div class="form-group">
+                        <label style="color:var(--blue)">TREŚĆ</label>
+                        <textarea id="pw-msg-body" placeholder="Napisz wiadomość..." style="width:100%;padding:12px 16px;background:rgba(0,20,40,0.8);border:1px solid var(--border);border-radius:4px;color:#fff;font-family:'Inter',sans-serif;font-size:.95rem;min-height:120px;resize:vertical;outline:none"></textarea>
+                    </div>
+                    <div style="display:flex;gap:12px">
+                        <button class="btn btn-primary" id="pw-send-msg" style="font-size:.7rem;padding:10px 24px">📤 WYŚLIJ</button>
+                        <button class="btn btn-outline" id="pw-cancel-compose" style="font-size:.7rem;padding:10px 24px">ANULUJ</button>
+                    </div>
+                </div>
+
+                <!-- Inbox -->
+                <div class="card">
+                    <h3 style="font-family:'Exo 2',sans-serif;color:var(--blue);margin-bottom:16px;font-size:.85rem">📥 SKRZYNKA ODBIORCZA</h3>
+                    <div id="pw-inbox" style="display:flex;flex-direction:column;gap:8px;max-height:500px;overflow-y:auto">
+                        <div style="text-align:center;color:var(--text-dim);padding:20px;font-size:.85rem">Ładowanie wiadomości...</div>
+                    </div>
+                </div>
+
+                <!-- Message View (hidden by default) -->
+                <div class="card" id="pw-msg-view" style="display:none;margin-top:24px">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                        <h3 style="font-family:'Exo 2',sans-serif;color:var(--blue);font-size:.85rem" id="pw-view-subject">TEMAT</h3>
+                        <button class="btn btn-outline" id="pw-close-msg" style="font-size:.65rem;padding:6px 14px">✕ ZAMKNIJ</button>
+                    </div>
+                    <div style="display:flex;gap:16px;margin-bottom:12px;font-size:.8rem;color:var(--text-dim)">
+                        <span>Od: <strong style="color:var(--blue)" id="pw-view-from"></strong></span>
+                        <span>Do: <strong style="color:var(--text)" id="pw-view-to"></strong></span>
+                        <span id="pw-view-date"></span>
+                    </div>
+                    <div id="pw-view-body" style="color:var(--text-dim);line-height:1.8;font-size:.95rem;padding:16px;background:rgba(0,20,40,0.4);border-radius:6px;border:1px solid var(--border)"></div>
+                    <div style="margin-top:16px">
+                        <button class="btn btn-primary" id="pw-reply-btn" style="font-size:.7rem;padding:8px 18px">↩️ ODPOWIEDZ</button>
                     </div>
                 </div>
             </div>
+
+            <!-- ══════ TAB: DRIVERS ══════ -->
+            <div class="pw-panel" id="pw-drivers">
+                <div class="pw-msg-toolbar">
+                    <button class="btn btn-primary" id="pw-add-driver-btn" style="font-size:.7rem;padding:8px 18px">➕ DODAJ KIEROWCĘ</button>
+                    <button class="btn btn-outline" id="pw-add-blacklist-btn" style="font-size:.7rem;padding:8px 18px;border-color:rgba(255,80,80,0.5);color:#f55">🚫 DODAJ DO BLACKLISTY</button>
+                    <input type="text" id="pw-driver-search" placeholder="🔍 Szukaj kierowcy..." style="padding:8px 16px;background:rgba(0,20,40,0.8);border:1px solid var(--border);border-radius:4px;color:#fff;font-family:'Inter',sans-serif;font-size:.85rem;outline:none;flex:1;max-width:300px">
+                </div>
+
+                <!-- Add Driver Form (hidden) -->
+                <div class="card" id="pw-driver-form" style="display:none;margin-bottom:24px">
+                    <h3 style="font-family:'Exo 2',sans-serif;color:var(--blue);margin-bottom:16px;font-size:.85rem" id="pw-driver-form-title">➕ DODAJ KIEROWCĘ</h3>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                        <div class="form-group">
+                            <label style="color:var(--blue)">IMIĘ I NAZWISKO</label>
+                            <input type="text" id="pw-drv-name" placeholder="Jan Kowalski">
+                        </div>
+                        <div class="form-group">
+                            <label style="color:var(--blue)">NUMER</label>
+                            <input type="text" id="pw-drv-number" placeholder="#77">
+                        </div>
+                        <div class="form-group">
+                            <label style="color:var(--blue)">KLASA</label>
+                            <select id="pw-drv-class" style="width:100%;padding:12px 16px;background:rgba(0,20,40,0.8);border:1px solid var(--border);border-radius:4px;color:#fff;font-family:'Inter',sans-serif;font-size:.95rem;outline:none">
+                                <option value="GT3">GT3</option>
+                                <option value="Hypercar">Hypercar</option>
+                                <option value="LMP2">LMP2</option>
+                                <option value="Rally">Rally</option>
+                                <option value="Academy">Academy</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="color:var(--blue)">STATUS</label>
+                            <select id="pw-drv-status" style="width:100%;padding:12px 16px;background:rgba(0,20,40,0.8);border:1px solid var(--border);border-radius:4px;color:#fff;font-family:'Inter',sans-serif;font-size:.95rem;outline:none">
+                                <option value="active">Aktywny</option>
+                                <option value="academy">Academy</option>
+                                <option value="reserve">Rezerwa</option>
+                                <option value="blacklist">Blacklist</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:var(--blue)">UWAGI</label>
+                        <input type="text" id="pw-drv-notes" placeholder="Dodatkowe informacje...">
+                    </div>
+                    <div style="display:flex;gap:12px;margin-top:8px">
+                        <button class="btn btn-primary" id="pw-save-driver" style="font-size:.7rem;padding:10px 24px">💾 ZAPISZ</button>
+                        <button class="btn btn-outline" id="pw-cancel-driver" style="font-size:.7rem;padding:10px 24px">ANULUJ</button>
+                    </div>
+                </div>
+
+                <!-- Driver Table -->
+                <div class="card">
+                    <h3 style="font-family:'Exo 2',sans-serif;color:var(--blue);margin-bottom:16px;font-size:.85rem">👥 BAZA KIEROWCÓW</h3>
+                    <div class="pw-driver-table-wrap">
+                        <table class="pw-driver-table" id="pw-driver-table">
+                            <thead>
+                                <tr>
+                                    <th>IMIĘ I NAZWISKO</th>
+                                    <th>NUMER</th>
+                                    <th>KLASA</th>
+                                    <th>STATUS</th>
+                                    <th>UWAGI</th>
+                                    <th>AKCJE</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pw-driver-tbody">
+                                <tr><td colspan="6" style="text-align:center;color:var(--text-dim);padding:20px">Ładowanie danych...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Blacklist Section -->
+                <div class="card" style="margin-top:24px;border-color:rgba(255,80,80,0.3)">
+                    <h3 style="font-family:'Exo 2',sans-serif;color:#f55;margin-bottom:16px;font-size:.85rem">🚫 BLACKLISTA</h3>
+                    <div class="pw-driver-table-wrap">
+                        <table class="pw-driver-table pw-driver-table--blacklist" id="pw-blacklist-table">
+                            <thead>
+                                <tr>
+                                    <th>IMIĘ I NAZWISKO</th>
+                                    <th>POWÓD</th>
+                                    <th>DATA</th>
+                                    <th>AKCJE</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pw-blacklist-tbody">
+                                <tr><td colspan="4" style="text-align:center;color:var(--text-dim);padding:20px">Brak wpisów</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════ TAB: VR-TELEMETRY ══════ -->
+            <div class="pw-panel" id="pw-telemetry">
+                <div class="card" style="text-align:center;padding:60px 40px">
+                    <div style="font-size:4rem;margin-bottom:16px;filter:drop-shadow(0 0 20px rgba(0,170,255,0.5))">📡</div>
+                    <h3 style="font-family:'Exo 2',sans-serif;color:var(--blue);margin-bottom:12px;font-size:1.2rem;letter-spacing:3px">VR-TELEMETRY</h3>
+                    <div style="font-family:'Exo 2',sans-serif;font-size:.6rem;letter-spacing:4px;color:var(--text-dim);margin-bottom:24px">AUTORSKIE OPROGRAMOWANIE · W PRZYGOTOWANIU</div>
+                    <p style="color:var(--text-dim);max-width:600px;margin:0 auto;line-height:1.8;font-size:.95rem">
+                        VR-telemetry to autorskie narzędzie Vistula Racing Team do analizy danych wyścigowych i optymalizacji setupów.
+                        System jest w fazie końcowego rozwoju i zostanie zintegrowany z sekcją Pitwall.
+                    </p>
+                    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px">
+                        <span class="about-pill">🔧 Auto-Setup Analysis</span>
+                        <span class="about-pill">📊 MoTeC Integration</span>
+                        <span class="about-pill">🏎️ Lap Comparison</span>
+                        <span class="about-pill">⚡ Real-time Data</span>
+                        <span class="about-pill">📈 Driver Performance</span>
+                        <span class="about-pill">🛞 Tyre Strategy</span>
+                    </div>
+                    <div style="margin-top:32px;padding:20px;background:rgba(0,170,255,0.05);border:1px solid var(--border);border-radius:8px">
+                        <div style="font-family:'Exo 2',sans-serif;font-size:.7rem;color:var(--blue);letter-spacing:3px;margin-bottom:8px">STATUS MODUŁU</div>
+                        <div style="display:flex;align-items:center;justify-content:center;gap:8px">
+                            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#f59e0b;box-shadow:0 0 8px rgba(245,158,11,0.6);animation:badgePulse 2s infinite"></span>
+                            <span style="color:#f59e0b;font-size:.85rem;letter-spacing:1px">W PRZYGOTOWANIU — ETA Q2 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- ===== JOIN US ===== -->
     <section id="joinus">
         <div class="section-header">
-            <div class="section-label">// REKRUTACJA</div>
+            <div class="section-label" data-i18n="join_label">// REKRUTACJA</div>
             <h2 class="section-title">JOIN US</h2>
             <div class="section-line" style="background:#22c55e;box-shadow:0 0 10px rgba(34,197,94,0.5);"></div>
-            <p style="color:var(--text-dim);margin-top:16px;font-size:.9rem">Masz to, czego szukamy? Dołącz do Vistula
+            <p style="color:var(--text-dim);margin-top:16px;font-size:.9rem" data-i18n="join_hint">Masz to, czego szukamy? Dołącz do Vistula
                 Racing.</p>
         </div>
         <div class="join-grid">
             <div>
                 <div class="card" style="margin-bottom:24px">
-                    <h3 style="font-family:'Orbitron',monospace;color:#22c55e;margin-bottom:16px;font-size:.9rem">✅
+                    <h3 style="font-family:'Exo 2',sans-serif;color:#22c55e;margin-bottom:16px;font-size:.9rem">✅
                         PODSTAWOWE WYMAGANIA</h3>
                     <ul class="req-list">
                         <li>Aktywne konto iRacing z co najmniej 6 miesiącami stażu</li>
@@ -784,7 +1803,7 @@
                     </ul>
                 </div>
                 <div class="card">
-                    <h3 style="font-family:'Orbitron',monospace;color:#22c55e;margin-bottom:12px;font-size:.9rem">📬
+                    <h3 style="font-family:'Exo 2',sans-serif;color:#22c55e;margin-bottom:12px;font-size:.9rem">📬
                         KONTAKT</h3>
                     <p style="color:var(--text-dim);font-size:.9rem;margin-bottom:8px">Discord: <span
                             style="color:#22c55e">vistularacing</span></p>
@@ -794,20 +1813,20 @@
             </div>
             <div class="join-form">
                 <div id="join-form-inner">
-                    <h3 style="font-family:'Orbitron',monospace;color:#22c55e;margin-bottom:24px;font-size:1rem">🏁
+                    <h3 style="font-family:'Exo 2',sans-serif;color:#22c55e;margin-bottom:24px;font-size:1rem">🏁
                         FORMULARZ REKRUTACYJNY</h3>
                     <form id="join-form">
                         <div class="form-group">
                             <label style="color:#22c55e">IMIĘ I NICK</label>
-                            <input type="text" placeholder="Jan Kowalski / JKowalski_VR" required>
+                            <input type="text" id="join-name" placeholder="Jan Kowalski / JKowalski_VR" required>
                         </div>
                         <div class="form-group">
                             <label style="color:#22c55e">EMAIL</label>
-                            <input type="email" placeholder="twoj@email.com" required>
+                            <input type="email" id="join-email" placeholder="twoj@email.com" required>
                         </div>
                         <div class="form-group">
                             <label style="color:#22c55e">KLASA DOCELOWA</label>
-                            <select required>
+                            <select id="join-class" required>
                                 <option value="">– wybierz –</option>
                                 <option>GT3</option>
                                 <option>GTE</option>
@@ -820,15 +1839,15 @@
                         </div>
                         <div class="form-group">
                             <label style="color:#22c55e">iRATING / SR</label>
-                            <input type="text" placeholder="np. 2450 iR / 4.2 SR" required>
+                            <input type="text" id="join-irating" placeholder="np. 2450 iR / 4.2 SR" required>
                         </div>
                         <div class="form-group">
                             <label style="color:#22c55e">O SOBIE</label>
-                            <textarea
+                            <textarea id="join-about"
                                 placeholder="Powiedz nam coś o sobie, swoim doświadczeniu i dlaczego chcesz dołączyć do VR..."
                                 required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-join-green btn-full">WYŚLIJ ZGŁOSZENIE</button>
+                        <button type="submit" id="join-btn" class="btn btn-join-green btn-full">WYŚLIJ ZGŁOSZENIE</button>
                     </form>
                 </div>
                 <div class="success-msg" id="join-success">
@@ -846,6 +1865,35 @@
                 PASSION</span></p>
     </footer>
 
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js"></script>
+    <script>
+      firebase.initializeApp({
+        apiKey: "AIzaSyAfAN2AstvYm7LECskQATfntvsB2eTGpTM",
+        authDomain: "vistularacingteam.firebaseapp.com",
+        projectId: "vistularacingteam",
+        storageBucket: "vistularacingteam.firebasestorage.app",
+        messagingSenderId: "741349412001",
+        appId: "1:741349412001:web:21a12785ed2da3406e74e0",
+        measurementId: "G-9PPZ0YJ6FN"
+      });
+      const db = firebase.firestore();
+      firebase.analytics();
+    </script>
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+         // The user will need to replace this placeholder with their EmailJS public key
+         emailjs.init({
+           publicKey: "YOUR_EMAILJS_PUBLIC_KEY_HERE",
+         });
+      })();
+    </script>
+    
+    <script src="translations.js"></script>
     <script src="app.js"></script>
 </body>
 
