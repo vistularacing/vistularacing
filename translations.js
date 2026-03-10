@@ -33,8 +33,8 @@ const TRANSLATIONS = {
     en: 'Vistula Racing Team is a professional Polish sim racing team whose roots go back to late-night Discord sessions and public Assetto Corsa servers in <strong style="color:var(--text)">2022</strong>. From garage underground, through the naming drama of the Rot4tion era, to hardcore endurance – we walked a path that only those who truly want to win can handle.'
   },
   about_vrt_p2: {
-    pl: 'Dziś Vistula Racing to <strong style="color:var(--text)">15 kierowców</strong>, flota GT3 i Hypercar, starty w międzynarodowej lidze <strong style="color:var(--text)">HEC</strong>, tytuł Drużynowego Mistrza Polski WEC, własne oprogramowanie <strong style="color:var(--blue)">VR-telemetry</strong> i sponsor <strong style="color:#ff6a1a;">Simline.eu</strong>. Nie jesteśmy wynikiem szczęścia – jesteśmy wynikiem buntu przeciwko amatorce.',
-    en: 'Today, Vistula Racing is <strong style="color:var(--text)">15 drivers</strong>, a fleet of GT3 and Hypercar machines, competing in the international <strong style="color:var(--text)">HEC</strong> league, Polish WEC Team Champions, creators of <strong style="color:var(--blue)">VR-telemetry</strong> software, and backed by <strong style="color:#ff6a1a;">Simline.eu</strong>. We are not a product of luck – we are a product of rebellion against mediocrity.'
+    pl: 'Dziś Vistula Racing to <strong style="color:var(--text)">15 kierowców</strong>, flota GT3 i Hypercar, starty w międzynarodowej lidze <strong style="color:var(--text)">HEC</strong>, tytuł Drużynowego Mistrza Polski WEC, własne oprogramowanie <strong style="color:var(--blue)">Vistula Labs</strong> i sponsor <strong style="color:#ff6a1a;">Simline.eu</strong>. Nie jesteśmy wynikiem szczęścia – jesteśmy wynikiem buntu przeciwko amatorce.',
+    en: 'Today, Vistula Racing is <strong style="color:var(--text)">15 drivers</strong>, a fleet of GT3 and Hypercar machines, competing in the international <strong style="color:var(--text)">HEC</strong> league, Polish WEC Team Champions, creators of <strong style="color:var(--blue)">Vistula Labs</strong> software, and backed by <strong style="color:#ff6a1a;">Simline.eu</strong>. We are not a product of luck – we are a product of rebellion against mediocrity.'
   },
   about_phil_title: { pl: 'NASZA FILOZOFIA', en: 'OUR PHILOSOPHY' },
   about_phil_p1: {
@@ -42,8 +42,8 @@ const TRANSLATIONS = {
     en: 'Champions are born from passion, hard data, and custom code. We believe sim racing is a real sport – it demands discipline, precision, and relentless progress. At Vistula Racing, we combine competition with building a community where every driver has a chance to grow.'
   },
   about_phil_p2: {
-    pl: 'Nasze podejście opiera się na <strong style="color:var(--text)">analizie danych</strong> – budujemy własne narzędzie <strong style="color:var(--blue)">VR-telemetry</strong> do optymalizacji setupów, korzystamy ze strategii pit-stopowych i zaawansowanej telemetrii. Akademia z żelaznym rygorem (75% tempa liderów = bilet do składu głównego) jest kuźnią nowych talentów. Atmosfera fair play i wzajemny szacunek to fundamenty każdego sukcesu.',
-    en: 'Our approach is built on <strong style="color:var(--text)">data analysis</strong> – we\'re developing our own <strong style="color:var(--blue)">VR-telemetry</strong> tool for setup optimization, advanced pit strategies, and deep telemetry insights. Our Academy has an iron rule (75% of leaders\' pace = ticket to the main roster) and serves as a talent forge. Fair play and mutual respect are the foundation of every success.'
+    pl: 'Nasze podejście opiera się na <strong style="color:var(--text)">analizie danych</strong> – budujemy własne narzędzie <strong style="color:var(--blue)">Vistula Labs</strong> do optymalizacji setupów, korzystamy ze strategii pit-stopowych i zaawansowanej telemetrii. Akademia z żelaznym rygorem (75% tempa liderów = bilet do składu głównego) jest kuźnią nowych talentów. Atmosfera fair play i wzajemny szacunek to fundamenty każdego sukcesu.',
+    en: 'Our approach is built on <strong style="color:var(--text)">data analysis</strong> – we\'re developing our own <strong style="color:var(--blue)">Vistula Labs</strong> tool for setup optimization, advanced pit strategies, and deep telemetry insights. Our Academy has an iron rule (75% of leaders\' pace = ticket to the main roster) and serves as a talent forge. Fair play and mutual respect are the foundation of every success.'
   },
   timeline_title: { pl: 'OŚ CZASU', en: 'TIMELINE' },
 
@@ -110,8 +110,8 @@ const TRANSLATIONS = {
   },
   tl_future_y: { pl: 'Nowe horyzonty', en: 'New Horizons' },
   tl_future: {
-    pl: '<strong style="color:var(--blue)">VR-telemetry</strong> – autorskie oprogramowanie do analizy danych i optymalizacji setupów, na ostatniej prostej przed wdrożeniem. Jednocześnie powstaje <strong style="color:var(--text)">sekcja rajdowa</strong> w Assetto Corsa Rally i legendarnym Richard Burns Rally (RBR). Wchodzimy tam z tą samą dyscypliną, która dała nam mistrzostwo w WEC.',
-    en: '<strong style="color:var(--blue)">VR-telemetry</strong> – proprietary software for data analysis and setup optimization, in final development. Simultaneously, a <strong style="color:var(--text)">rally division</strong> launches in Assetto Corsa Rally and the legendary Richard Burns Rally (RBR). We enter with the same discipline that won us the WEC championship.'
+    pl: '<strong style="color:var(--blue)">Vistula Labs</strong> – autorskie oprogramowanie do analizy danych i optymalizacji setupów, na ostatniej prostej przed wdrożeniem. Jednocześnie powstaje <strong style="color:var(--text)">sekcja rajdowa</strong> w Assetto Corsa Rally i legendarnym Richard Burns Rally (RBR). Wchodzimy tam z tą samą dyscypliną, która dała nam mistrzostwo w WEC.',
+    en: '<strong style="color:var(--blue)">Vistula Labs</strong> – proprietary software for data analysis and setup optimization, in final development. Simultaneously, a <strong style="color:var(--text)">rally division</strong> launches in Assetto Corsa Rally and the legendary Richard Burns Rally (RBR). We enter with the same discipline that won us the WEC championship.'
   },
 
   // ---- TEAM (formerly MANAGEMENT/ROSTER) ----

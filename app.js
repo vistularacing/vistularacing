@@ -859,6 +859,347 @@ function initPitwall() {
     });
   }
   loadDrivers();
+
+  // ══════════════════════════════════════════════
+  // --- VISTULA LABS (TELEMETRY LOGS) ---
+  // ══════════════════════════════════════════════
+  const aiForm = document.getElementById('pw-ai-form');
+  const aiConsole = document.getElementById('pw-ai-console');
+  const aiActions = document.getElementById('pw-ai-actions');
+
+  function clearAiForm() {
+    ['pw-ai-car', 'pw-ai-track', 'pw-ai-prompt', 'pw-ai-file'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    aiConsole.style.display = 'none';
+    aiConsole.innerHTML = '<div>[SYS] Wzbudzanie sieci neuronowej Vistula Labs...</div>';
+    aiActions.style.display = 'flex';
+  }
+
+  const btnAddLog = document.getElementById('pw-add-log-btn');
+  if (btnAddLog) {
+    btnAddLog.addEventListener('click', () => {
+      clearAiForm();
+      aiForm.style.display = 'block';
+      document.getElementById('pw-ai-car').focus();
+    });
+  }
+
+  const btnCancelAi = document.getElementById('pw-cancel-ai-btn');
+  if (btnCancelAi) {
+    btnCancelAi.addEventListener('click', () => {
+      aiForm.style.display = 'none';
+    });
+  }
+
+  const btnRunAi = document.getElementById('pw-run-ai-btn');
+  if (btnRunAi) {
+    btnRunAi.addEventListener('click', () => {
+      const car = document.getElementById('pw-ai-car').value.trim();
+      const track = document.getElementById('pw-ai-track').value.trim();
+      const promptText = document.getElementById('pw-ai-prompt').value.trim();
+      const fileInput = document.getElementById('pw-ai-file');
+      
+      const hasFile = fileInput && fileInput.files.length > 0;
+      
+      if (!car || !track || (!promptText && !hasFile)) {
+        alert('Podaj Samochód, Tor oraz wgraj plik `.ld` lub wpisz zapytanie!');
+        return;
+      }
+
+      // Start AI Simulation Animation
+      aiActions.style.display = 'none';
+      aiConsole.style.display = 'block';
+      
+      let initialMsg = '<div><span style="color:#d966d6">[SYS]</span> Wzbudzanie mechanizmu MoTeC AI Analyzer...</div>';
+      
+      let steps = [
+        '<span style="color:#d966d6">[NET]</span> Nawiązywanie bezpiecznego połączenia z klastrem Vistula Cloud...',
+        '<span style="color:#0bf">[PARSE]</span> Dekodowanie struktury wejściowej parametrów trakcyjnych...',
+        `<span style="color:#0bf">[METADATA]</span> Wczytany kontekst: Platforma pojazdu na torze ${track}...`,
+        '<span style="color:#ffc107">[AI:VISION]</span> Analiza odchyleń od normy trakcyjnej z opisów zapytania...',
+        '<span style="color:#ffc107">[AI:CALC]</span> Generowanie macierzy wag dla sprężyn i tłumików (bump/rebound)...',
+        '<span style="color:#0bf">[SYS]</span> Optymalizacja zestawu aerodynamicznego (Downforce-to-Drag ratio)...',
+        '<span style="color:#22c55e">[DONE]</span> Konwergencja modelu zakończona. Eksportowanie wniosków setupu do bazy!'
+      ];
+
+      // If file uploaded, "Deep Analysis" mode (longer steps)
+      if (hasFile) {
+        const fileName = fileInput.files[0].name;
+        initialMsg += `<div><span style="color:#0bf">[UPLOAD]</span> Plik binarny wykryty: <strong>${fileName}</strong>. Uruchamianie trybu głębokiej telemetrii...</div>`;
+        steps = [
+          '<span style="color:#d966d6">[NET]</span> Nawiązywanie bezpiecznego połączenia z klastrem obliczeniowym Vistula AI...',
+          `<span style="color:#0bf">[DECODE]</span> Czytanie binarnego zrzutu logu MoTeC (${fileName})...`,
+          '<span style="color:#0bf">[PARSE]</span> Wyodrębnianie kanałów: Damper Pos, Wheel Slip, Tyre Temp IMO zgrupowanych dla ' + track + '...',
+          '<span style="color:#ffc107">[AI:VISION]</span> Analizowanie telemetrii pod kątem braków trakcji i balansu hamulców...',
+          '<span style="color:#ffc107">[AI:MATH]</span> Inżynieria odwrotna (Reverse Engineering) Setupu dla ' + car + '... (to może potrwać dłuższą chwilę ⏳)',
+          '<span style="color:#ffc107">[AI:MATH]</span> Transformacja różniczkowa zjawiska Bottoming i Ride Height na prostych...',
+          '<span style="color:#ffc107">[AI:MATH]</span> Konstruowanie krzywej ugięcia tłumika i kompensowanie geometrii...',
+          '<span style="color:#0bf">[SYS]</span> Synchronizacja balansu docisku areodynamicznego (Aero Map)...',
+          '<span style="color:#22c55e">[DONE]</span> Ekstrakcja z MoTeC ukończona! Zapisywanie złotego setupu...'
+        ];
+      }
+
+      aiConsole.innerHTML = initialMsg;
+
+      let step = 0;
+      // Step duration is longer if a file is uploaded to simulate heavy processing
+      const intervalDelay = hasFile ? 1800 : 700; 
+
+      const interval = setInterval(() => {
+        if (step < steps.length) {
+          const div = document.createElement('div');
+          div.innerHTML = steps[step];
+          div.style.marginTop = '6px';
+          aiConsole.appendChild(div);
+          aiConsole.scrollTop = aiConsole.scrollHeight;
+          step++;
+        } else {
+          clearInterval(interval);
+          setTimeout(() => {
+            const fileNameStr = hasFile ? fileInput.files[0].name : '';
+            generateAiSetupAndSave({ car, track, promptText, fileName: fileNameStr });
+          }, 800);
+        }
+      }, intervalDelay);
+    });
+  }
+
+  function generateAiSetupAndSave(data) {
+    const p = data.promptText.toLowerCase();
+    const c = data.car.toLowerCase();
+    const t = data.track.toLowerCase();
+    
+    let solution = '';
+    let issue = data.promptText.length > 80 ? data.promptText.substring(0, 77) + '...' : data.promptText;
+
+    // --- LMU ASTON MARTIN VALKYRIE HY (MONZA) SPECIFIC LOGIC ---
+    // If the user mentions Valkyrie + LMU / Monza, we generate a highly specific setup table.
+    if ((c.includes('valkyrie') || p.includes('valkyrie')) && (t.includes('monza') || p.includes('monza') || p.includes('lmu'))) {
+      solution += 'Oto zoptymalizowany setup dla **Aston Martin Valkyrie HY** (Le Mans Ultimate) na bardzo szybkim torze z mocnymi strefami dohamowań (np. Monza). <br><br>';
+      
+      // Powertrain & Electronics
+      solution += '<ul><li><b>Powertrain:</b> Engine Mixture na "Race", Fuel Ratio ~1.00. Water Rad na 50%, Oil Rad na 50% by zmniejszyć opory powietrza na długich prostych.</li>';
+      solution += '<li><b>Electronics:</b> TC zrzucony na 3 (dla agresywnego wyjścia z pierwszej szykany), TC Slip Angle: 4.</li>';
+      
+      // Differential
+      solution += '<li><b>Differential:</b> Power: 45% (lepsza trakcja przy wyjściu), Coast: 60% (stabilizuje tył na głębokim trail brakingu do Curve Biassono), Preload: 85Nm. Zestrojenie Gearing Ratio: Le Mans.</li>';
+      
+      // Brakes
+      solution += '<li><b>Brakes:</b> Bias przesunięty bardzo do tyłu: 52.8:47.2, Brake Migration 1.0%F dla ratowania blokowania przodu na Rettifilo. Max Force 100%. Front Blanking 25%, Rear 50% (hamulce na Monzy muszą odetchnąć).</li>';
+      
+      // Aero
+      solution += '<li><b>Aero & Chassis:</b> Front Wing: P3, Tył Toe-in: 0.12 (stabilność na prostych), Przód Toe-in: -0.18 (szybsza reakcja kierownicy). Max Wheel Lock: 360 deg. ARB: Przód Detached / P1 dla zwinności, Tył P4.</li>';
+      
+      // Suspension / Wheels
+      solution += '<li><b>Opony:</b> Przód Ciśnienie ~144kPa / Tył ~146kPa na zimno. Przód Camber: -3.8deg, Tył Camber: -2.3deg (maksymalizacja trakcji).</li>';
+      solution += '<li><b>Suspension (Ride Height / Springs):</b> Front RH: ~4.5cm, Rear RH: ~5.5cm. Przód 10 / Tył 8 Spring Rate by skompresować Aero. 3rd Spring Front: rate 10 z 1.5cm packers!</li></ul>';
+
+      // --- GENERATE .SVM FILE CONTENT FOR DOWNLOAD ---
+      // We create a mock .svm string representing the Valkyrie setup configuration
+      const svmContent = `//[[gMa1.002f (c)2016    ]] [[            ]]
+// Setup file for Aston Martin Valkyrie HY - Generated by Vistula AI Engine
+[GENERAL]
+Notes="Vistula AI Engine Optimization: Monza"
+Symmetric=1
+
+[LEFTFENDER]
+FenderFlare=0
+
+[RIGHTFENDER]
+FenderFlare=0
+
+[FRONTWING]
+FWSetting=3
+
+[REARWING]
+RWSetting=12 // Matching T-High
+
+[ENGINE]
+RevLimit=0
+EngineMixture=1
+EngineBrakingMap=0
+WaterRadiator=2   // 50%
+OilRadiator=2     // 50%
+
+[DRIVELINE]
+FinalDriveSetting=1 // Le Mans / Monza Ratio
+ReverseSetting=0
+Gear1Setting=0
+Gear2Setting=0
+Gear3Setting=0
+Gear4Setting=0
+Gear5Setting=0
+Gear6Setting=0
+Gear7Setting=0
+TractionControl=3
+TCLatch=4
+DiffPumpSetting=10 // Power: 45%
+DiffPowerSetting=11 // Coast 60%
+DiffPreloadSetting=17 // 85Nm
+
+[FRONTLEFT]
+CamberSetting=-28 // -3.8deg
+PressureSetting=13 // 144kPa
+ToeInSetting=-3   // -0.18
+RideHeightSetting=5 // 4.5cm
+SpringSetting=9   // 10 rate
+PackerSetting=0
+
+[FRONTRIGHT]
+CamberSetting=-28
+PressureSetting=13
+ToeInSetting=-3
+RideHeightSetting=5
+SpringSetting=9
+PackerSetting=0
+
+[REARLEFT]
+CamberSetting=-13 // -2.3deg
+PressureSetting=15 // 146kPa
+ToeInSetting=2    // 0.12
+RideHeightSetting=5 // 5.5cm
+SpringSetting=7   // 8 rate
+PackerSetting=0
+
+[REARRIGHT]
+CamberSetting=-13
+PressureSetting=15
+ToeInSetting=2
+RideHeightSetting=5
+SpringSetting=7
+PackerSetting=0
+
+[CONTROLS]
+SteerLockSetting=3 // 360 deg
+RearBrakeSetting=14 // 52.8:47.2
+BrakePressureSetting=100
+`;
+
+      solution += '<div style="margin-top:12px;"><button class="btn btn-outline" style="border-color:#d966d6;color:#d966d6;font-size:.65rem;padding:6px 12px;cursor:pointer;" onclick="downloadSvmFile(\'' + encodeURIComponent(svmContent) + '\', \'Vistula_Valkyrie_Monza.svm\')">⬇️ POBIERZ PLIK .SVM</button></div>';
+
+    } else {
+      // Very simple pseudo-AI matching keywords to make it look professional for other cars
+      if (p.includes('understeer') || p.includes('podsterow')) {
+        solution += 'Zmniejsz przedni stabilizator (ARB) o 1-2 kliki. Zwiększ Rake platformy podnosząc tył o 2mm. Rozważ minimalnie większy Toe-Out z przodu dla lepszej reakcji na wejściu. ';
+      }
+      if (p.includes('oversteer') || p.includes('nadsterow') || p.includes('tył ucieka')) {
+        solution += 'Zwiększ tylne skrzydło o 1 stopień dla pewności T-High. Zmniejsz tylny ARB. Utwardź przednie sprężyny by odciążyć tył na wejściu w zakręt. ';
+      }
+      if (p.includes('opon') || p.includes('temperatur') || p.includes('temp') || p.includes('psi')) {
+        solution += 'Dane termalne odchylone poza okno operacyjne MoTeC. Obniż ciśnienie bazowe o ~0.4 PSI z gorącej strony osi opon. Zweryfikuj negatywny Camber (jeśli Inner jest za gorący). ';
+      }
+      if (p.includes('bump') || p.includes('krawężnik') || p.includes('krawęznik') || p.includes('nierównośc') || p.includes('trakcj')) {
+        solution += 'Amortyzatory (Fast Bump / Rebound) są przegięte na kompresji. Mniejszy % Fast Bump na tylnej osi pomoże wchłaniać wibracje i wygładzić wykres trakcji. ';
+      }
+      if (solution === '') {
+        solution = 'Opis wskazuje na ogólną potrzebę re-balansu. Wyciągnij więcej przyczepności mechanicznej zjeżdżając z wysokości Ride Height na minimum przed uderzeniem deski. Miększe sprężyny ustabilizują wykres Damper Histograms.';
+      }
+    }
+    
+    // Add professional closing flavor
+    solution += ' <span style="color:#d966d6;font-size:0.75rem;display:block;margin-top:4px;">[Model Confidence: 94.2% - Vistula Labs AI Engine]</span>';
+
+    const logEntry = {
+      id: Date.now() + '',
+      driver: '🤖 Vistula AI Engine',
+      car: data.car,
+      track: data.track,
+      issue: '🔍 AI Diagnoza: ' + issue,
+      solution: solution,
+      link: '',
+      addedAt: Date.now()
+    };
+
+    // Save locally
+    const logs = lsGet('pw_vl_logs', []);
+    logs.unshift(logEntry);
+    lsSet('pw_vl_logs', logs.slice(0, 100));
+
+    // Firebase background sync
+    if (fbAvailable()) {
+      db.collection('vistula_labs_logs').add({
+        driver: logEntry.driver,
+        car: logEntry.car,
+        track: logEntry.track,
+        issue: logEntry.issue,
+        solution: logEntry.solution,
+        link: logEntry.link,
+        addedAt: firebase.firestore.FieldValue.serverTimestamp()
+      }).catch(() => {});
+    }
+
+    aiForm.style.display = 'none';
+    loadVistulaLogs();
+    showToast('🚀 Model sieci wygenerował Setup - Dane załączone do tabeli!');
+  }
+
+  const btnRefreshLogs = document.getElementById('pw-refresh-logs-btn');
+  if (btnRefreshLogs) {
+    btnRefreshLogs.addEventListener('click', loadVistulaLogs);
+  }
+
+  function loadVistulaLogs() {
+    const tbody = document.getElementById('pw-logs-tbody');
+    if (!tbody) return;
+
+    let logs = lsGet('pw_vl_logs', []);
+
+    // Also attempt Firebase fetch if available, overriding local storage on success
+    if (fbAvailable()) {
+      db.collection('vistula_labs_logs').orderBy('addedAt', 'desc').limit(20).get()
+        .then(snapshot => {
+          const fbLogs = [];
+          snapshot.forEach(doc => {
+            const data = doc.data();
+            fbLogs.push({
+              id: doc.id,
+              driver: data.driver, car: data.car, track: data.track,
+              link: data.link, issue: data.issue, solution: data.solution,
+              addedAt: data.addedAt ? data.addedAt.toMillis() : Date.now()
+            });
+          });
+          if (fbLogs.length > 0) {
+            logs = fbLogs;
+            lsSet('pw_vl_logs', logs);
+            renderVistulaLogsTable(logs);
+          }
+        }).catch(err => {
+          console.warn('Firebase VL logs error:', err);
+        });
+    }
+    
+    // Always render with current best knowledge
+    renderVistulaLogsTable(logs);
+  }
+
+  function renderVistulaLogsTable(logs) {
+    const tbody = document.getElementById('pw-logs-tbody');
+    if (!tbody) return;
+
+    if (logs.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-dim);padding:20px">Brak analiz w bazie Vistula Labs. Bądź pierwszym diagnostą!</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = '';
+    logs.forEach(log => {
+      const d = new Date(log.addedAt).toLocaleDateString('pl-PL');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="font-family:'Orbitron',monospace;color:var(--text-dim);font-size:.8rem">${d}</td>
+        <td style="font-weight:600">${log.driver}</td>
+        <td><strong style="color:var(--blue)">${log.track}</strong><br><span style="font-size:.75rem;color:var(--text-dim)">${log.car}</span></td>
+        <td style="font-size:.85rem;max-width:200px;white-space:normal;color:#f55">${log.issue || '—'}</td>
+        <td style="font-size:.85rem;max-width:250px;white-space:normal;color:#22c55e">${log.solution || '—'}</td>
+        <td>${log.link ? '<a href="' + log.link + '" target="_blank" class="btn btn-outline" style="font-size:.65rem;padding:4px 8px;">🔗 MoTeC</a>' : '—'}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // Initial load
+  loadVistulaLogs();
 }
 
 // Simple toast notification
@@ -878,3 +1219,20 @@ function showToast(msg) {
 
 // =================== INIT ===================
 showSection('home');
+
+// Helper to download generated .svm files
+window.downloadSvmFile = function(encodedContent, filename) {
+  const content = decodeURIComponent(encodedContent);
+  const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  
+  setTimeout(() => {
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }, 100);
+};
