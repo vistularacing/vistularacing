@@ -868,7 +868,7 @@ function initPitwall() {
   const aiActions = document.getElementById('pw-ai-actions');
 
   function clearAiForm() {
-    ['pw-ai-car', 'pw-ai-track', 'pw-ai-prompt', 'pw-ai-file'].forEach(id => {
+    ['pw-ai-car', 'pw-ai-track', 'pw-ai-prompt', 'pw-ai-file-telemetry', 'pw-ai-file-setup'].forEach(id => {
       document.getElementById(id).value = '';
     });
     aiConsole.style.display = 'none';
@@ -898,12 +898,14 @@ function initPitwall() {
       const car = document.getElementById('pw-ai-car').value.trim();
       const track = document.getElementById('pw-ai-track').value.trim();
       const promptText = document.getElementById('pw-ai-prompt').value.trim();
-      const fileInput = document.getElementById('pw-ai-file');
+      const fileTel = document.getElementById('pw-ai-file-telemetry');
+      const fileSetup = document.getElementById('pw-ai-file-setup');
       
-      const hasFile = fileInput && fileInput.files.length > 0;
+      const hasTel = fileTel && fileTel.files.length > 0;
+      const hasSetup = fileSetup && fileSetup.files.length > 0;
       
-      if (!car || !track || (!promptText && !hasFile)) {
-        alert('Podaj Samochód, Tor oraz wgraj plik `.ld` lub wpisz zapytanie!');
+      if (!car || !track || (!promptText && !hasTel && !hasSetup)) {
+        alert('Podaj Samochód, Tor oraz wgraj plik `.ld` lub `.svm` lub wpisz zapytanie!');
         return;
       }
 
@@ -924,12 +926,14 @@ function initPitwall() {
       ];
 
       // If file uploaded, "Deep Analysis" mode (longer steps)
-      if (hasFile) {
-        const fileName = fileInput.files[0].name;
-        initialMsg += `<div><span style="color:#0bf">[UPLOAD]</span> Plik binarny wykryty: <strong>${fileName}</strong>. Uruchamianie trybu głębokiej telemetrii...</div>`;
+      if (hasTel || hasSetup) {
+        let fNames = [];
+        if (hasTel) fNames.push(fileTel.files[0].name);
+        if (hasSetup) fNames.push(fileSetup.files[0].name);
+        initialMsg += `<div><span style="color:#0bf">[UPLOAD]</span> Pliki wejściowe wektorowe: <strong>${fNames.join(' + ')}</strong>. Uruchamianie modułu korelacji...</div>`;
         steps = [
           '<span style="color:#d966d6">[NET]</span> Nawiązywanie bezpiecznego połączenia z klastrem obliczeniowym Vistula AI...',
-          `<span style="color:#0bf">[DECODE]</span> Czytanie binarnego zrzutu logu MoTeC (${fileName})...`,
+          `<span style="color:#0bf">[DECODE]</span> Czytanie binarnego zrzutu logu MoTeC (${fNames.join(' + ')})...`,
           '<span style="color:#0bf">[PARSE]</span> Wyodrębnianie kanałów: Damper Pos, Wheel Slip, Tyre Temp IMO zgrupowanych dla ' + track + '...',
           '<span style="color:#ffc107">[AI:VISION]</span> Analizowanie telemetrii pod kątem braków trakcji i balansu hamulców...',
           '<span style="color:#ffc107">[AI:MATH]</span> Inżynieria odwrotna (Reverse Engineering) Setupu dla ' + car + '... (to może potrwać dłuższą chwilę ⏳)',
@@ -944,7 +948,7 @@ function initPitwall() {
 
       let step = 0;
       // Step duration is longer if a file is uploaded to simulate heavy processing
-      const intervalDelay = hasFile ? 1800 : 700; 
+      const intervalDelay = (hasTel || hasSetup) ? 1800 : 700; 
 
       const interval = setInterval(() => {
         if (step < steps.length) {
@@ -957,8 +961,10 @@ function initPitwall() {
         } else {
           clearInterval(interval);
           setTimeout(() => {
-            const fileNameStr = hasFile ? fileInput.files[0].name : '';
-            generateAiSetupAndSave({ car, track, promptText, fileName: fileNameStr });
+            let fNames = [];
+            if (hasTel) fNames.push(fileTel.files[0].name);
+            if (hasSetup) fNames.push(fileSetup.files[0].name);
+            generateAiSetupAndSave({ car, track, promptText, fileName: fNames.join(' + ') });
           }, 800);
         }
       }, intervalDelay);

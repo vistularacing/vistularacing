@@ -1979,9 +1979,15 @@
                                 <textarea id="pw-ai-prompt" placeholder="Opisz problem. Np. 'Ogromny understeer na wolnych zakrętach, tył potrafi uciekać przy trail breakingu...' Lub wklej zrzut wierszy." style="width:100%;padding:16px;background:rgba(10,5,20,0.8);border:1px solid rgba(217,102,214,0.3);border-radius:4px;color:#fff;font-family:'Inter',sans-serif;font-size:.9rem;min-height:80px;margin-bottom:12px;"></textarea>
                                 
                                 <!-- FILE UPLOAD -->
-                                <div style="display:flex;align-items:center;gap:12px;background:rgba(217,102,214,0.1);padding:12px;border:1px dashed rgba(217,102,214,0.4);border-radius:4px;">
-                                    <input type="file" id="pw-ai-file" accept=".ld,.ldx,.csv" style="color:var(--text-dim);font-size:.8rem;width:100%;">
-                                    <span style="font-size:.7rem;color:#d966d6;white-space:nowrap;cursor:help;" title="Wgraj plik z telemetrią (.ld) do symulacji głębokiej analizy.">WGRAJ LOG</span>
+                                <div style="display:flex;flex-wrap:wrap;gap:12px;">
+                                    <div style="flex:1;display:flex;align-items:center;gap:12px;background:rgba(217,102,214,0.1);padding:12px;border:1px dashed rgba(217,102,214,0.4);border-radius:4px;">
+                                        <input type="file" id="pw-ai-file-telemetry" accept=".ld,.ldx,.csv,.duckdb,.db" style="color:var(--text-dim);font-size:.8rem;width:100%;">
+                                        <span style="font-size:.7rem;color:#d966d6;white-space:nowrap;cursor:help;" title="Wgraj plik z logiem telemetrii (.ld / .csv / .duckdb)">LOG TEL.</span>
+                                    </div>
+                                    <div style="flex:1;display:flex;align-items:center;gap:12px;background:rgba(217,102,214,0.1);padding:12px;border:1px dashed rgba(217,102,214,0.4);border-radius:4px;">
+                                        <input type="file" id="pw-ai-file-setup" accept=".svm,.json" style="color:var(--text-dim);font-size:.8rem;width:100%;">
+                                        <span style="font-size:.7rem;color:#d966d6;white-space:nowrap;cursor:help;" title="Opcjonalnie: Wgraj plik z setupem (.svm), by AI pomogło maszynie.">SETUP .SVM</span>
+                                    </div>
                                 </div>
                             </div>
                             
