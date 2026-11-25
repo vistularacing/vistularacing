@@ -1,0 +1,7 @@
+node_modules/
+*.pyc
+__pycache__/
+.env*
+.firebase/
+.DS_Store
+Thumbs.db
